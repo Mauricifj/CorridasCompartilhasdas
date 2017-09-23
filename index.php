@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Theme Simply Me</title>
+    <title>Corridas Compartilhadas Inc. &trade;</title>
     <meta charset="utf-8">
     <!-- Bootstrap, jQuery, Angular -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
