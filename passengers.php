@@ -109,7 +109,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-    <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>
+    <p>Corridas Compartilhadas Inc. &trade;</p>
 </footer>
 
 </body>
