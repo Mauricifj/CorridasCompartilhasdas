@@ -30,7 +30,7 @@
         }
 
         .bg-1 {
-            background-color: #f4511e;
+            background-color: #1abc9c;
             color: #ffffff;
         }
 
@@ -80,11 +80,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="logout.php">SAIR</a>
+            <a class="navbar-brand" href="index.php">P&Aacute;GINA INICIAL</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="drivers.php">P&Aacute;GINA INICIAL</a></li>
                 <li><a href="drivers.php">MOTORISTAS</a></li>
                 <li><a href="rides.php">CORRIDAS</a></li>
                 <li><a href="passengers.php">PASSAGEIROS</a></li>
@@ -97,17 +96,14 @@
 <div class="container-fluid bg-1 text-center">
     <h3 class="margin">MOTORISTAS</h3><br>
     <div class="row">
-        <a href="#search">
+        <a id="searchSlide" href="#search">
             <div class="col-sm-4">
                 <img src="images/magGlass.png" class="img-responsive margin" style="width:50%;" alt="Motoristas">
             </div>
         </a>
-        <a href="#add">
-            <div class="col-sm-4">
-
-            </div>
-        </a>
-        <a href="#add">
+        <div class="col-sm-4">
+        </div>
+        <a id="addSlide" href="#add">
             <div class="col-sm-4">
                 <img src="images/plus.png" class="img-responsive margin" style="width:50%;" alt="Passageiros">
             </div>
@@ -154,7 +150,7 @@
                 <input type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="statusDriver" id="statusDriver2" autocomplete="off" >Status Inativo
+                <input type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
             </label>
         </div>
         <br />
@@ -165,7 +161,7 @@
             </label>
 
             <label class="btn btn-warning">
-                <input type="radio" name="genderDriver" id="genderDriver2" autocomplete="off" >Sexo feminino
+                <input type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
             </label>
         </div>
         <br />
@@ -184,35 +180,19 @@
 
 <script>
     $(document).ready(function () {
-        // Add smooth scrolling to all links in navbar + footer link
-        $("a, footer a[href='#']").on('click', function (event) {
-
+        // Add smooth scrolling to add and search
+        $("#addSlide, #searchSlide").on('click', function (event) {
             // Prevent default anchor click behavior
             event.preventDefault();
-
             // Store hash
             var hash = this.hash;
-
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            // animate() to add smooth page scroll
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 900, function () {
+            }, 900, function () { //milliseconds to scroll
 
                 // Add hash (#) to URL when done scrolling (default click behavior)
                 window.location.hash = hash;
-            });
-        });
-
-        // Slide in elements on scroll
-        $(window).scroll(function () {
-            $(".slideanim").each(function () {
-                var pos = $(this).offset().top;
-
-                var winTop = $(window).scrollTop();
-                if (pos < winTop + 600) {
-                    $(this).addClass("slide");
-                }
             });
         });
     });

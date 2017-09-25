@@ -20,7 +20,7 @@
         .img-responsive {display: inline;}
         .margin {margin-bottom: 45px;}
         .bg-1 {
-            background-color: #1abc9c; /* Green */
+            background-color: #138496; /* Green */
             color: #ffffff;
         }
         .bg-2 {
@@ -64,11 +64,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="logout.php">SAIR</a>
+            <a class="navbar-brand" href="index.php">P&Aacute;GINA INICIAL</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="drivers.php">P&Aacute;GINA INICIAL</a></li>
                 <li><a href="drivers.php">MOTORISTAS</a></li>
                 <li><a href="rides.php">CORRIDAS</a></li>
                 <li><a href="passengers.php">PASSAGEIROS</a></li>

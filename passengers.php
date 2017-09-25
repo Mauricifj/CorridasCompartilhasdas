@@ -64,7 +64,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="logout.php">SAIR</a>
+            <a class="navbar-brand" href="index.php">P&Aacute;GINA INICIAL</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -76,27 +76,11 @@
     </div>
 </nav>
 
-<!-- Services Container -->
-<div class="container-fluid bg-1 text-center">
-    <h3 class="margin">SERVIÇOS</h3><br>
-    <div class="row">
-        <a href="drivers.php">
-            <div class="col-sm-4">
-                <img src="images/driver.png" class="img-responsive margin" style="width:50%;" alt="Motoristas">
-            </div>
-        </a>
-        <a href="rides.php">
-            <div class="col-sm-4">
-                <img src="images/car.png" class="img-responsive margin" style="width:50%;" alt="Corridas">
-            </div>
-        </a>
-        <a href="passengers.php">
-            <div class="col-sm-4">
-                <img src="images/pass.png" class="img-responsive margin" style="width:50%;" alt="Passageiros">
-            </div>
-        </a>
-    </div>
+<div ng-app="" class="container-fluid bg-4 text-center">
+    <p>Name: <input type="text" ng-model="name"></p>
+    <p ng-bind="name"></p>
 </div>
+
 
 <!-- About Container -->
 <div class="container-fluid bg-2 text-center" id="about">
