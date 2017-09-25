@@ -10,6 +10,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://ds149844.mlab.com:49844/heroku_qw0r27m5";
+
+        MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        console.log("Database created!");
+        db.close();
+        });
+    </script>
     <style>
         body {
             font: 20px Montserrat, sans-serif;
