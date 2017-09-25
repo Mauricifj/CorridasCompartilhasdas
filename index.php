@@ -68,6 +68,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="drivers.php">P&Aacute;GINA INICIAL</a></li>
                 <li><a href="drivers.php">MOTORISTAS</a></li>
                 <li><a href="rides.php">CORRIDAS</a></li>
                 <li><a href="passengers.php">PASSAGEIROS</a></li>

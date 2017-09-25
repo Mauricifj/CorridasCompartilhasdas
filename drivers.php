@@ -84,6 +84,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="drivers.php">P&Aacute;GINA INICIAL</a></li>
                 <li><a href="drivers.php">MOTORISTAS</a></li>
                 <li><a href="rides.php">CORRIDAS</a></li>
                 <li><a href="passengers.php">PASSAGEIROS</a></li>
@@ -130,18 +131,47 @@
         <h3 class="margin">CADASTRAR MOTORISTAS</h3>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="nameDriver" type="text" class="form-control" name="nameDriver" placeholder="Nome">
+            <input id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
         </div>
+        <br />
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            <input id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01">
+            <input id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
         </div>
+        <br />
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-            <input id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF"  title="Digite seu CPF no formato: xxx.xxx.xxx-xx">
+            <input id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
         </div>
+        <br />
         <div class="input-group">
-            <input type="submit" value="Cadastrar">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+            <input id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+        </div>
+        <br />
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="statusDriver" id="statusDriver2" autocomplete="off" >Status Inativo
+            </label>
+        </div>
+        <br />
+        <br />
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-warning active">
+                <input type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
+            </label>
+
+            <label class="btn btn-warning">
+                <input type="radio" name="genderDriver" id="genderDriver2" autocomplete="off" >Sexo feminino
+            </label>
+        </div>
+        <br />
+        <br />
+        <div class="btn">
+            <input type="submit" value="Cadastrar" class="btn btn-success">
         </div>
     </form>
 </div>
@@ -173,7 +203,7 @@
                 window.location.hash = hash;
             });
         });
-        $('#cpfDriver').mask('###.###.###-##');
+
         // Slide in elements on scroll
         $(window).scroll(function () {
             $(".slideanim").each(function () {
