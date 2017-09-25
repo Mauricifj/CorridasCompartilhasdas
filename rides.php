@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var MongoClient = require('mongodb').MongoClient;
+        var MongoClient = require('mongodb');
         var url = "mongodb://adminCorridasCompartilhadas:senhadb0@ds149844.mlab.com:49844/heroku_qw0r27m5";
 
         MongoClient.connect(url, function(err, db) {
