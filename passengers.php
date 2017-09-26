@@ -1,55 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Corridas Compartilhadas Inc. &trade;</title>
-    <meta charset="utf-8">
-    <!-- Bootstrap, jQuery, Angular etc -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<?php
+    require_once("jsandcss.php");
+?>
     <style>
-        body {
-            font: 20px Montserrat, sans-serif;
-            line-height: 1.8;
-            color: #f5f6f7;
-        }
-        p {font-size: 16px;}
-        .img-responsive {display: inline;}
-        .margin {margin-bottom: 45px;}
         .bg-1 {
-            background-color: #1abc9c; /* Green */
-            color: #ffffff;
-        }
-        .bg-2 {
-            background-color: #474e5d; /* Dark Blue */
+            background-color: #bd4147;
             color: #ffffff;
         }
         .bg-3 {
-            background-color: #ffffff; /* White */
-            color: #555555;
-        }
-        .bg-4 {
-            background-color: #2f2f2f; /* Black Gray */
-            color: #fff;
-        }
-        .container-fluid {
-            padding-top: 70px;
-            padding-bottom: 70px;
-        }
-        .navbar {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border: 0;
-            border-radius: 0;
-            margin-bottom: 0;
-            font-size: 12px;
-            letter-spacing: 5px;
-        }
-        .navbar-nav  li a:hover {
-            color: #1abc9c !important;
+            background-color: #721c24;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -76,20 +35,77 @@
     </div>
 </nav>
 
-<div ng-app="" class="container-fluid bg-4 text-center">
-    <p>Name: <input type="text" ng-model="name"></p>
-    <p ng-bind="name"></p>
+<!-- Passengers Container -->
+<div class="container-fluid bg-1 text-center">
+    <h3 class="margin">PASSAGEIROS</h3><br>
+    <div class="row">
+        <a id="searchSlide" href="#search">
+            <div class="col-sm-4">
+                <img src="images/magGlass.png" class="img-responsive margin" alt="Consultar">
+            </div>
+        </a>
+        <div class="col-sm-4">
+        </div>
+        <a id="addSlide" href="#add">
+            <div class="col-sm-4">
+                <img src="images/plus.png" class="img-responsive margin" alt="Cadastrar">
+            </div>
+        </a>
+    </div>
 </div>
 
-
-<!-- About Container -->
-<div class="container-fluid bg-2 text-center" id="about">
-    <h3 class="margin">QUEM SOMOS?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae nibh non est tincidunt pulvinar a vel nisi. Nam accumsan mauris vel sollicitudin blandit. Phasellus vulputate tempor ex, sit amet sollicitudin risus sollicitudin vitae. Aenean dapibus pellentesque purus, vitae condimentum metus suscipit sed. Nam eu lectus accumsan arcu sagittis fringilla. Sed ut neque blandit, laoreet neque a, accumsan ipsum. Vestibulum risus augue, tempus in ullamcorper vitae, egestas eget ex. Duis nulla est, mollis ut scelerisque nec, lacinia et ante.</p>
-    <p>Suspendisse vitae gravida diam. Praesent leo orci, rutrum vel lacus ac, hendrerit posuere ipsum. Vestibulum rutrum augue tincidunt, semper ex sed, accumsan ante. Donec lacus metus, porta quis rhoncus ultricies, vestibulum sed est. Donec eleifend ante odio, sit amet facilisis sapien vehicula sed. In nec iaculis arcu. Ut et ligula nibh. Cras non hendrerit magna. Nunc vel mauris at justo sodales porttitor. Donec vestibulum augue ac ante porta, id maximus enim auctor. Nulla varius urna nulla, et efficitur ex ultrices quis. Suspendisse potenti. Donec vehicula egestas est, vitae commodo sapien. Nam varius diam mauris, et efficitur dui porttitor nec.</p>
+<!-- Search Container -->
+<div id="search" class="container-fluid bg-2 text-center">
+    <h3 class="margin">CONSULTAR PASSAGEIROS</h3>
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+        <input id="consultDriver" type="text" class="form-control" name="consultDriver" placeholder="Consultar">
+    </div>
 </div>
 
+<!-- Add Container -->
 
+<div id="add" class="container-fluid bg-3 text-center">
+    <form name="addDriver">
+        <h3 class="margin">CADASTRAR PASSAGEIROS</h3>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="namePassenger" type="text" class="form-control" name="namePassenger" maxlength="50" placeholder="Nome" required>
+        </div>
+        <div class="spacer">
+            <hr>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input id="birthPassenger" type="date" class="form-control" name="birthPassenger" min="1900-01-01" max="2017-12-12" required>
+        </div>
+        <div class="spacer">
+            <hr>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+            <input id="cpfPassenger" type="text" class="form-control" name="cpfPassenger" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
+        </div>
+        <div class="spacer">
+            <hr>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-warning active">
+                <input type="radio" name="genderPassenger" id="genderPassenger1" autocomplete="off" checked>Sexo masculino
+            </label>
+
+            <label class="btn btn-warning">
+                <input type="radio" name="genderPassenger" id="genderPassenger2" autocomplete="off">Sexo feminino
+            </label>
+        </div>
+        <div class="spacer">
+            <hr>
+        </div>
+        <div class="btn">
+            <input type="submit" value="Cadastrar" class="btn btn-success">
+        </div>
+    </form>
+</div>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">

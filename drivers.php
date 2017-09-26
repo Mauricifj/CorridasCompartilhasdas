@@ -1,71 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Corridas Compartilhadas Company &trade;</title>
-    <meta charset="utf-8">
-    <!-- Bootstrap, jQuery, Angular etc -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<?php
+    require_once("jsandcss.php");
+?>
     <style>
-        body {
-            font: 20px Montserrat, sans-serif;
-            line-height: 1.8;
-            color: #f5f6f7;
-        }
-
-        p {
-            font-size: 16px;
-        }
-
-        .img-responsive {
-            display: inline;
-        }
-
-        .margin {
-            margin-bottom: 45px;
-        }
-
         .bg-1 {
             background-color: #1abc9c;
             color: #ffffff;
         }
-
-        .bg-2 {
-            background-color: #474e5d;
-            color: #ffffff;
-        }
-
         .bg-3 {
             background-color: #138496;
             color: #fff;
-        }
-
-        .bg-4 {
-            background-color: #2f2f2f;
-            color: #fff;
-        }
-
-        .container-fluid {
-            padding-top: 70px;
-            padding-bottom: 70px;
-        }
-
-        .navbar {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border: 0;
-            border-radius: 0;
-            margin-bottom: 0;
-            font-size: 12px;
-            letter-spacing: 5px;
-        }
-
-        .navbar-nav li a:hover {
-            color: #1abc9c !important;
         }
     </style>
 </head>
@@ -98,14 +41,14 @@
     <div class="row">
         <a id="searchSlide" href="#search">
             <div class="col-sm-4">
-                <img src="images/magGlass.png" class="img-responsive margin" style="width:50%;" alt="Motoristas">
+                <img src="images/magGlass.png" class="img-responsive margin" alt="Consultar">
             </div>
         </a>
         <div class="col-sm-4">
         </div>
         <a id="addSlide" href="#add">
             <div class="col-sm-4">
-                <img src="images/plus.png" class="img-responsive margin" style="width:50%;" alt="Passageiros">
+                <img src="images/plus.png" class="img-responsive margin" alt="Cadastrar">
             </div>
         </a>
     </div>
@@ -121,7 +64,6 @@
 </div>
 
 <!-- Add Container -->
-
 <div id="add" class="container-fluid bg-3 text-center">
     <form name="addDriver">
         <h3 class="margin">CADASTRAR MOTORISTAS</h3>
@@ -129,22 +71,30 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
         </div>
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             <input id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
         </div>
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
             <input id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
         </div>
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
             <input id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
         </div>
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-primary active">
                 <input type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
@@ -153,8 +103,9 @@
                 <input type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
             </label>
         </div>
-        <br />
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-warning active">
                 <input type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
@@ -164,8 +115,9 @@
                 <input type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
             </label>
         </div>
-        <br />
-        <br />
+        <div class="spacer">
+            <hr>
+        </div>
         <div class="btn">
             <input type="submit" value="Cadastrar" class="btn btn-success">
         </div>
@@ -177,26 +129,6 @@
 <footer class="container-fluid bg-4 text-center">
     <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>
 </footer>
-
-<script>
-    $(document).ready(function () {
-        // Add smooth scrolling to add and search
-        $("#addSlide, #searchSlide").on('click', function (event) {
-            // Prevent default anchor click behavior
-            event.preventDefault();
-            // Store hash
-            var hash = this.hash;
-            // animate() to add smooth page scroll
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 900, function () { //milliseconds to scroll
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
