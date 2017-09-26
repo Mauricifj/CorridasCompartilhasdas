@@ -17,19 +17,19 @@
 //    VALUES ('John Doe', $mysqldate, '42756522825', 'Sandero', 'ativo', 'M')";
 
     if($id > 0){
-    	$query="SELECT idDriver, driverName FROM drivers;
-    	$r = $conn->mysqli->query($query) or die($conn->mysqli->error.__LINE__);
+    	$query="SELECT idDriver, driverName FROM drivers";
+    	$r = $conn->query($query) or die($conn->error.__LINE__);
     	if($r->num_rows > 0) {
         	$result = $r->fetch_assoc();	
         	$this->response($this->json($result), 200); // send user details
     	}
     }
 
-//    if ($conn->query($sql) === TRUE) {
-//      echo "New record created successfully";
-//    } else {
-//        echo "Error: " . $sql . "<br>" . $conn->error;
-//    }
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
     $conn->close();
 ?>
