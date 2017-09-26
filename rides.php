@@ -68,59 +68,8 @@
 <div id="add" class="container-fluid bg-3 text-center">
     <form name="addDriver">
         <h3 class="margin">CADASTRAR CORRIDAS</h3>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="name" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-            <input id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-            <input id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
-            </label>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-warning active">
-                <input type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
-            </label>
-
-            <label class="btn btn-warning">
-                <input type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
-            </label>
-        </div>
-        <div class="spacer">
-            <hr>
-        </div>
-        <div class="btn">
-            <input type="submit" value="Cadastrar" class="btn btn-success">
+        <div class="container-fluid">
+            <img src="images/construction.png" class="img-responsive margin" alt="Construction">
         </div>
     </form>
 </div>
