@@ -17,11 +17,11 @@
 //    VALUES ('John Doe', $mysqldate, '42756522825', 'Sandero', 'ativo', 'M')";
 
     if($id > 0){
-    	$query="SELECT idDriver, driverName FROM drivers";
+    	$query="SELECT idDriver FROM drivers";
     	$r = $conn->query($query) or die($conn->error.__LINE__);
     	if($r->num_rows > 0) {
         	$result = $r->fetch_assoc();	
-        	$this->response($this->json($result), 200); // send user details
+        	$conn->response($conn->json($result), 200); // send user details
     	}
     }
 
