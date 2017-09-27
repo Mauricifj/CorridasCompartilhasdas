@@ -212,7 +212,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" ng-click="updateDriver($index)">Atualizar</button>
+                    <button type="button" class="btn btn-primary" ng-click="updateDriver()">Atualizar</button>
                 </div>
             </div>
         </div>
