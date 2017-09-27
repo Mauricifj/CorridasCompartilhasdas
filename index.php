@@ -7,10 +7,10 @@
     <!-- Bootstrap CSS File  -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-<body ng-app="App">
+<body ng-app="App" ng-controller="DriverController">
 
     <!-- Content Section -->
-    <div ng-controller="DriverController">
+    <div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
