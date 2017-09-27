@@ -105,26 +105,21 @@
 					<div class="spacer">
 						<hr>
 					</div>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active">
-							<input ng-model="driver.statusDriver" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
-						</label>
-						<label class="btn btn-primary">
-							<input ng-model="driver.statusDriver" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
-						</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+						<input ng-model="driver.statusDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-warning active">
-							<input ng-model="driver.genderDriver" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
-						</label>
-
-						<label class="btn btn-warning">
-							<input ng-model="driver.genderDriver" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
-						</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+						<input ng-model="driver.genderDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
 					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					
 					<div class="spacer">
 						<br />
 					</div>
