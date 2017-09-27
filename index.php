@@ -27,6 +27,7 @@
                     <table ng-if="drivers.length > 0" class="table table-bordered table-responsive table-striped">
                         <tr>
                             <th>Registro</th>
+                            <th>Número</th>
                             <th>Nome</th>
                             <th>Nascimento</th>
                             <th>CPF</th>
@@ -37,6 +38,7 @@
                         </tr>
                         <tr ng-repeat="driver in drivers">
                             <td>{{ driver.idDriver }}</td>
+                            <th>{{ $index + 1 }}</th>
                             <td>{{ driver.nameDriver }}</td>
                             <td>{{ driver.birthDriver }}</td>
                             <td>{{ driver.cpfDriver }}</td>
@@ -45,7 +47,7 @@
                             <td>{{ driver.genderDriver }}</td>
                             <td>
                                 <button ng-click="edit($index)"  class="btn btn-primary btn-xs">Editar</button>
-                                <button ng-click="delete(driver.idDriver)" class="btn btn-danger btn-xs">Apagar</button>
+                                <button ng-click="delete($index, drivers.idDriver)" class="btn btn-danger btn-xs">Apagar</button>
                             </td>
                         </tr>
                     </table>
