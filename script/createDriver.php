@@ -4,14 +4,14 @@ require __DIR__ . '/library.php';
 $data = json_decode(file_get_contents('php://input'), TRUE);
 
 // Create Driver
-if (isset($data['driver'])) {
+if (isset($data['driverInfo'])) {
 
-    $nameDriver = (isset($data['driver']['name']) ? $data['driver']['name'] : NULL);
-    $birthDriver = (isset($data['driver']['birth']) ? $data['driver']['birth'] : NULL);
-    $cpfDriver = (isset($data['driver']['cpf']) ? $data['driver']['cpf'] : NULL);
-    $carDriver = (isset($data['driver']['car']) ? $data['driver']['car'] : NULL);
-    $statusDriver = (isset($data['driver']['status']) ? $data['driver']['status'] : NULL);
-    $genderDriver = (isset($data['driver']['gender']) ? $data['driver']['gender'] : NULL);
+    $nameDriver = (isset($data['driverInfo']['name']) ? $data['driverInfo']['name'] : NULL);
+    $birthDriver = (isset($data['driverInfo']['birth']) ? $data['driverInfo']['birth'] : NULL);
+    $cpfDriver = (isset($data['driverInfo']['cpf']) ? $data['driverInfo']['cpf'] : NULL);
+    $carDriver = (isset($data['driverInfo']['car']) ? $data['driverInfo']['car'] : NULL);
+    $statusDriver = (isset($data['driverInfo']['status']) ? $data['driverInfo']['status'] : NULL);
+    $genderDriver = (isset($data['driverInfo']['gender']) ? $data['driverInfo']['gender'] : NULL);
 
     // Validation
     if ($nameDriver == NULL || $birthDriver == NULL || $cpfDriver == NULL || $carDriver == NULL || $statusDriver == NULL || $genderDriver == NULL) {
