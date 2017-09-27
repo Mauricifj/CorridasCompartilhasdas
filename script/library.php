@@ -28,9 +28,6 @@ class Driver
      */
     public function Create($nameDriver, $birthDriver, $cpfDriver, $carDriver, $statusDriver, $genderDriver)
     {
-        //$birthDriver = strtotime($birthDriver);
-        //$birthDriver = date('Y-m-d', $birthDriver);
-
         $query = $this->db->prepare("INSERT INTO Drivers (nameDriver, birthDriver, cpfDriver, carDriver, statusDriver, genderDriver) VALUES (:name, :birth, :cpf, :car, :status, :gender)");
         $query->bindParam("name", $nameDriver, PDO::PARAM_STR);
         $query->bindParam("birth", $birthDriver, PDO::PARAM_STR);
