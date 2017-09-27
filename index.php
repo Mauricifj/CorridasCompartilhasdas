@@ -70,83 +70,85 @@
                 </div>
                 <div class="modal-body text-center">
 
+
                     <ul class="alert alert-danger" ng-if="errors.length > 0">
                         <li ng-repeat="error in errors">
                             {{ error }}
                         </li>
                     </ul>
 
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input ng-model="driver.name" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
-                </div>
-                <div class="spacer">
-                    <hr>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                    <input ng-model="driver.birth" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
-                </div>
-                <div class="spacer">
-                    <hr>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-                    <input ng-model="driver.cpf" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
-                </div>
-                <div class="spacer">
-                    <hr>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-                    <input ng-model="driver.car" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
-                </div>
-                <div class="spacer">
-                    <hr>
-                </div>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                        <input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
-                    </label>
-                    <label class="btn btn-primary">
-                        <input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
-                    </label>
-                </div>
-                <div class="spacer">
-                    <hr>
-                </div>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-warning active">
-                        <input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
-                    </label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input ng-model="driver.name" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
+					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						<input ng-model="driver.birth" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
+					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+						<input ng-model="driver.cpf" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
+					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+						<input ng-model="driver.car" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-primary active">
+							<input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
+						</label>
+						<label class="btn btn-primary">
+							<input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
+						</label>
+					</div>
+					<div class="spacer">
+						<hr>
+					</div>
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-warning active">
+							<input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
+						</label>
 
-                    <label class="btn btn-warning">
-                        <input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
-                    </label>
+						<label class="btn btn-warning">
+							<input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
+						</label>
+					</div>
+					<div class="spacer">
+						<br />
+					</div>
+					<div class="modal-footer">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-success" ng-click="addDriver()">Adicionar</button>
+						</div>
+					</div>
                 </div>
-                <div class="spacer">
-                    <br />
-                </div>
-                <div class="modal-footer">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success" ng-click="addDriver()">Adicionar</button>
-                    </div>
-                </div>
-                </div>
-        </div>
+			</div>
+		</div>
     </div>
     <!-- // Modal -->
 
     <!-- Modal - Update Driver -->
-    <div class="modal fade" id="updateDriver1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="updateDriver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="updateDriver">Editar motorista</h4>
+                    <h4 class="modal-title">Editar motorista</h4>
                 </div>
                 <div class="modal-body">
 
@@ -156,7 +158,7 @@
                         </li>
                     </ul>
 
-                    <div class="input-group">
+                <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input ng-model="driver_details.name" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
                 </div>
