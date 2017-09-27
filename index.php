@@ -123,12 +123,13 @@
                     </label>
                 </div>
                 <div class="spacer">
-                        <hr>
-                    </div>
-                <div class="modal-footer">
                     <br />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" ng-click="addDriver()">Adicionar</button>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" ng-click="addDriver()">Adicionar</button>
+                    </div>
                 </div>
                 </div>
         </div>
@@ -160,7 +161,7 @@
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea ng-model="task_details.description" class="form-control" name="description"></textarea>
+                        <input type="date" ng-model="driver_details.birth" class="form-control" name="birth">
                     </div>
 
                 </div>
@@ -188,5 +189,6 @@
 
 <!-- Custom JS file -->
 <script type="text/javascript" src="lib/app.js"></script>
+
 </body>
 </html>
