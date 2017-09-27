@@ -187,10 +187,10 @@
                 </div>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                        <input ng-model="driver_details.statusDriver" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
+                        <input ng-model="driver_details.statusDriver" value="ativo" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
                     </label>
                     <label class="btn btn-primary">
-                        <input ng-model="driver_details.statusDriver" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
+                        <input ng-model="driver_details.statusDriver" value="inativo" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
                     </label>
                 </div>
                 <div class="spacer">
@@ -198,11 +198,11 @@
                 </div>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-warning active">
-                        <input ng-model="driver_details.genderDriver" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
+                        <input ng-model="driver_details.genderDriver" value="M" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
                     </label>
 
                     <label class="btn btn-warning">
-                        <input ng-model="driver_details.genderDriver" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
+                        <input ng-model="driver_details.genderDriver" value="F" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
                     </label>
                 </div>
                 <div class="spacer">
