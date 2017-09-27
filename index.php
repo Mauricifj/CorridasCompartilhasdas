@@ -37,7 +37,7 @@
                             <th>Opções</th>
                         </tr>
                         <tr ng-repeat="driver in drivers">
-                            <td>{{ driver.id }}</td>
+                            <td>{{ driver.idDriver }}</td>
                             <th>{{ $index + 1 }}</th>
                             <td>{{ driver.nameDriver }}</td>
                             <td>{{ driver.birthDriver }}</td>
