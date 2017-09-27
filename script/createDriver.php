@@ -5,6 +5,9 @@ $data = json_decode(file_get_contents('php://input'), TRUE);
 
 // Create Driver
 if (isset($data['driver'])) {
+    
+    $birthDriver = strtotime($birthDriver);
+    $birthDriver = date('Y-m-d', $birthDriver);
 
     $nameDriver = (isset($data['driver']['nameDriver ']) ? $data['driver']['nameDriver '] : NULL);
     $birthDriver = (isset($data['driver']['birthDriver']) ? $data['driver']['birthDriver'] : NULL);
