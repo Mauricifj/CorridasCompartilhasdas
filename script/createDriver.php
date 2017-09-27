@@ -9,8 +9,8 @@ if (isset($data['driver'])) {
     $nameDriver = (isset($data['driver']['nameDriver ']) ? $data['driver']['nameDriver '] : NULL);
     $birthDriver = (isset($data['driver']['birthDriver']) ? $data['driver']['birthDriver'] : NULL);
     
-    $birthDriver = strtotime($birthDriver);
-    $birthDriver = date('Y-m-d', $birthDriver);
+    //$birthDriver = strtotime($birthDriver);
+    //$birthDriver = date('Y-m-d', $birthDriver);
     
     $cpfDriver = (isset($data['driver']['cpfDriver']) ? $data['driver']['cpfDriver'] : NULL);
     $carDriver = (isset($data['driver']['carDriver']) ? $data['driver']['carDriver'] : NULL);
