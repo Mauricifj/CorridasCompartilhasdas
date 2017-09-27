@@ -93,7 +93,7 @@
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-						<input ng-model="driver.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
+						<input ng-model="driver.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" required>
 					</div>
 					<div class="spacer">
 						<hr>
@@ -107,14 +107,18 @@
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-						<input ng-model="driver.statusDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+						<input ng-model="driver.statusDriver" id="statusDriver" type="text" class="form-control" name="statusDriver" placeholder="Status" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
-					<div class="input-group">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-						<input ng-model="driver.genderDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+					<div class="btn-group" data-toggle="buttons">
+					    <label class="btn btn-primary active">
+						<input ng-model="driver.genderDriver" value="M" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo Masculino
+					    </label>
+					    <label class="btn btn-primary">
+						<input ng-model="driver.genderDriver" value="F" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo Feminino
+					    </label>
 					</div>
 					<div class="spacer">
 						<hr>
