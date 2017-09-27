@@ -79,21 +79,21 @@
 
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input ng-model="driver_details.nameDriver" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
+						<input ng-model="driver.nameDriver" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-						<input ng-model="driver_details.birthDriver" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
+						<input ng-model="driver.birthDriver" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-						<input ng-model="driver_details.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
+						<input ng-model="driver.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
 					</div>
 					<div class="spacer">
 						<hr>
