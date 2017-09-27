@@ -79,38 +79,38 @@
 
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input ng-model="driver.name" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
+						<input ng-model="driver.nameDriver" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-						<input ng-model="driver.birth" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
+						<input ng-model="driver.birthDriver" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-						<input ng-model="driver.cpf" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
+						<input ng-model="driver.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: xxx.xxx.xxx-xx" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-						<input ng-model="driver.car" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+						<input ng-model="driver.carDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-primary active">
-							<input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
+							<input ng-model="driver.statusDriver" type="radio" name="statusDriver" id="statusDriver1" autocomplete="off" checked>Status ativo
 						</label>
 						<label class="btn btn-primary">
-							<input ng-model="driver.status" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
+							<input ng-model="driver.statusDriver" type="radio" name="statusDriver" id="statusDriver2" autocomplete="off">Status Inativo
 						</label>
 					</div>
 					<div class="spacer">
@@ -118,11 +118,11 @@
 					</div>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-warning active">
-							<input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
+							<input ng-model="driver.genderDriver" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo masculino
 						</label>
 
 						<label class="btn btn-warning">
-							<input ng-model="driver.gender" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
+							<input ng-model="driver.genderDriver" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo feminino
 						</label>
 					</div>
 					<div class="spacer">
