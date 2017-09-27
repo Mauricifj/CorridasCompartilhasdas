@@ -8,12 +8,12 @@ $data = json_decode(file_get_contents('php://input'), TRUE);
 if (isset($data['driver'])) {
 
     $idDriver = (isset($data['driver']['idDriver']) ? $data['driver']['idDriver'] : NULL);
-    $nameDriver = (isset($data['driver']['name']) ? $data['driver']['name'] : NULL);
-    $birthDriver = (isset($data['driver']['birth']) ? $data['driver']['birth'] : NULL);
-    $cpfDriver = (isset($data['driver']['cpf']) ? $data['driver']['cpf'] : NULL);
-    $carDriver = (isset($data['driver']['car']) ? $data['driver']['car'] : NULL);
-    $statusDriver = (isset($data['driver']['status']) ? $data['driver']['status'] : NULL);
-    $genderDriver = (isset($data['driver']['gender']) ? $data['driver']['gender'] : NULL);
+    $nameDriver = (isset($data['driver']['nameDriver']) ? $data['driver']['nameDriver'] : NULL);
+    $birthDriver = (isset($data['driver']['birthDriver']) ? $data['driver']['birthDriver'] : NULL);
+    $cpfDriver = (isset($data['driver']['cpfDriver']) ? $data['driver']['cpfDriver'] : NULL);
+    $carDriver = (isset($data['driver']['carDriver']) ? $data['driver']['carDriver'] : NULL);
+    $statusDriver = (isset($data['driver']['statusDriver']) ? $data['driver']['statusDriver'] : NULL);
+    $genderDriver = (isset($data['driver']['genderDriver']) ? $data['driver']['genderDriver'] : NULL);
 
     // Validation
     if ($nameDriver == NULL || $birthDriver == NULL || $cpfDriver == NULL || $carDriver == NULL || $statusDriver == NULL || $genderDriver == NULL) {
