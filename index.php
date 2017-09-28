@@ -44,8 +44,8 @@
                             <td>{{ driver.statusDriver }}</td>
                             <td>{{ driver.genderDriver }}</td>
                             <td>
-                                <button ng-click="editDriver($index, $scope.drivers.cpf)"  class="btn btn-primary btn-xs">Editar</button>
-                                <button ng-click="deleteDriver($index, $scope.drivers.cpf)" class="btn btn-danger btn-xs">Apagar</button>
+                                <button ng-click="editDriver($index, $scope.drivers.cpf)"  class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                                <button ng-click="deleteDriver($index, $scope.drivers.cpf)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Apagar</button>
                             </td>
                         </tr>
                     </table>
@@ -129,8 +129,8 @@
 					</div>
 					<div class="modal-footer">
 						<div class="btn-group">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-success" ng-click="addNewDriver()">Adicionar</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar</button>
+							<button type="button" class="btn btn-success" ng-click="addNewDriver()"><span class="glyphicon glyphicon-floppy-disk"></span>Adicionar</button>
 						</div>
 					</div>
                 </div>
