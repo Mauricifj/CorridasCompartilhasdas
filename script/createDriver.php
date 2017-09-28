@@ -4,28 +4,27 @@ require __DIR__ . '/library.php';
 $data = json_decode(file_get_contents('php://input'), TRUE);
 
 // Create Driver
-if (isset($data['driver'])) {
+if (isset($data['addDriver'])) {
     
-    $nameDriver = (isset($data['driver']['nameDriver ']) ? $data['driver']['nameDriver '] : NULL);
-    $birthDriver = (isset($data['driver']['birthDriver']) ? $data['driver']['birthDriver'] : NULL);
+    $name = (isset($data['addDriver']['name']) ? $data['addDriver']['name'] : NULL);
+    $birth = (isset($data['addDriver']['birth']) ? $data['addDriver']['birth'] : NULL);
+
+    $birth = strtotime($birth);
+    $birth = date('Y-m-d', $birth);
     
-    $birthDriver = strtotime($birthDriver);
-    $birthDriver = date('Y-m-d', $birthDriver);
-    
-    $cpfDriver = (isset($data['driver']['cpfDriver']) ? $data['driver']['cpfDriver'] : NULL);
-    $carDriver = (isset($data['driver']['carDriver']) ? $data['driver']['carDriver'] : NULL);
-    $statusDriver = (isset($data['driver']['statusDriver']) ? $data['driver']['statusDriver'] : NULL);
-    $genderDriver = (isset($data['driver']['genderDriver']) ? $data['driver']['genderDriver'] : NULL);
+    $cpf = (isset($data['addDriver']['cpf']) ? $data['addDriver']['cpf'] : NULL);
+    $car = (isset($data['addDriver']['car']) ? $data['addDriver']['car'] : NULL);
+    $status = (isset($data['addDriver']['status']) ? $data['addDriver']['status'] : NULL);
+    $gender = (isset($data['addDriver']['gender']) ? $data['addDriver']['gender'] : NULL);
 
     // Validation
-    if ($nameDriver == NULL || $birthDriver == NULL || $cpfDriver == NULL || $carDriver == NULL || $statusDriver == NULL || $genderDriver == NULL) {
+    if ($name == NULL || $birth == NULL || $cpf == NULL || $car == NULL || $status == NULL || $gender == NULL) {
         http_response_code(400);
         echo json_encode(['errors' => ["Por favor, preencher todos os campos!"]]);
 
     } else {
         // Add the driver
         $driver = new Driver();
-
-        echo $driver->Create($nameDriver, $birthDriver, $cpfDriver, $carDriver, $statusDriver, $genderDriver);
+        echo $driver->Create($name, $birth, $cpf, $car, $status, $gender);
     }
 }

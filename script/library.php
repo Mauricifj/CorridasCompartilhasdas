@@ -38,7 +38,6 @@ class Driver
         $query->execute();
 
         return json_encode(['driver' => [
-            'id'        => $this->db->lastInsertId(),
             'name'      => $nameDriver,
             'birth'     => $birthDriver,
             'cpf'       => $cpfDriver,
@@ -78,10 +77,9 @@ class Driver
      * @param $genderDriver
      *
      */
-    public function Update($idDriver, $nameDriver, $birthDriver, $cpfDriver, $carDriver, $statusDriver, $genderDriver)
+    public function Update($nameDriver, $birthDriver, $cpfDriver, $carDriver, $statusDriver, $genderDriver)
     {
-        $query = $this->db->prepare("UPDATE Drivers SET nameDriver = :name, birthDriver = :birth, cpfDriver = :cpf, carDriver = :car, statusDriver = :status, genderDriver = :gender WHERE idDriver = :id");
-        $query->bindParam("id", $idDriver, PDO::PARAM_STR);
+        $query = $this->db->prepare("UPDATE Drivers SET nameDriver = :name, birthDriver = :birth, carDriver = :car, statusDriver = :status, genderDriver = :gender WHERE cpfDriver = :cpf");
         $query->bindParam("name", $nameDriver, PDO::PARAM_STR);
         $query->bindParam("birth", $birthDriver, PDO::PARAM_STR);
         $query->bindParam("cpf", $cpfDriver, PDO::PARAM_STR);
@@ -96,10 +94,10 @@ class Driver
      *
      * @param $idDriver
      */
-    public function Delete($idDriver)
+    public function Delete($cpfDriver)
     {
-        $query = $this->db->prepare("DELETE FROM Drivers WHERE idDriver = :id");
-        $query->bindParam("id", $idDriver, PDO::PARAM_STR);
+        $query = $this->db->prepare("DELETE FROM Drivers WHERE cpfDriver = :cpf");
+        $query->bindParam("cpf", $cpfDriver, PDO::PARAM_STR);
         $query->execute();
     }
 }

@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addDriver">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addNewDriver">
                             Adicionar Motorista
                         </button>
                     </div>
@@ -26,7 +26,6 @@
                     <h3>Motoristas:</h3>
                     <table ng-if="drivers.length > 0" class="table table-bordered table-responsive table-striped">
                         <tr>
-                            <th>Registro</th>
                             <th>Número</th>
                             <th>Nome</th>
                             <th>Nascimento</th>
@@ -37,7 +36,6 @@
                             <th>Opções</th>
                         </tr>
                         <tr ng-repeat="driver in drivers">
-                            <td>{{ driver.idDriver }}</td>
                             <th>{{ $index + 1 }}</th>
                             <td>{{ driver.nameDriver }}</td>
                             <td>{{ driver.birthDriver }}</td>
@@ -46,8 +44,8 @@
                             <td>{{ driver.statusDriver }}</td>
                             <td>{{ driver.genderDriver }}</td>
                             <td>
-                                <button ng-click="edit($index, drivers.idDriver)"  class="btn btn-primary btn-xs">Editar</button>
-                                <button ng-click="delete($index, drivers.idDriver)" class="btn btn-danger btn-xs">Apagar</button>
+                                <button ng-click="editDriver($index, $scope.drivers.cpf)"  class="btn btn-primary btn-xs">Editar</button>
+                                <button ng-click="deleteDriver($index, $scope.drivers.cpf)" class="btn btn-danger btn-xs">Apagar</button>
                             </td>
                         </tr>
                     </table>
@@ -59,18 +57,16 @@
 
     <!-- Bootstrap Modals -->
     <!-- Modal - Add New Driver -->
-    <div class="modal fade" id="addDriver" tabindex="-1" role="dialog">
+    <div class="modal fade" id="addNewDriver" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Adicionar motorista</h4>
+                    <h4 class="modal-title">Adicionar motorista</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body text-center">
-
-
                     <ul class="alert alert-danger" ng-if="errors.length > 0">
                         <li ng-repeat="error in errors">
                             {{ error }}
@@ -79,45 +75,49 @@
 
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input ng-model="driver.nameDriver" id="nameDriver" type="text" class="form-control" name="nameDriver" maxlength="50" placeholder="Nome" required>
+                        <input ng-model="addDriver.name" id="nameDriver" type="text" class="form-control" name="nameDriver" placeholder="Nome" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-						<input ng-model="driver.birthDriver" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
+						<input ng-model="addDriver.birth" id="birthDriver" type="date" class="form-control" name="birthDriver" min="1900-01-01" max="2000-01-01" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-						<input ng-model="driver.cpfDriver" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" required>
+						<input ng-model="addDriver.cpf" id="cpfDriver" type="text" class="form-control" name="cpfDriver" placeholder="CPF" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-						<input ng-model="driver.carDriver" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
+						<input ng-model="addDriver.car" id="carDriver" type="text" class="form-control" name="carDriver" placeholder="Modelo do carro" required>
 					</div>
 					<div class="spacer">
 						<hr>
 					</div>
-					<div class="input-group">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-						<input ng-model="driver.statusDriver" id="statusDriver" type="text" class="form-control" name="statusDriver" placeholder="Status" required>
-					</div>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input ng-model="addDriver.status" value="ativo" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Status Ativo
+                        </label>
+                        <label class="btn btn-primary">
+                            <input ng-model="addDriver.status" ng-value="inativo" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Status Inativo
+                        </label>
+                    </div>
 					<div class="spacer">
 						<hr>
 					</div>
 					<div class="btn-group" data-toggle="buttons">
-					    <label class="btn btn-primary active">
-						<input ng-model="driver.genderDriver" value="M" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo Masculino
+					    <label class="btn btn-warning active">
+						<input ng-model="addDriver.gender" value="M" type="radio" name="genderDriver" id="genderDriver1" autocomplete="off" checked>Sexo Masculino
 					    </label>
-					    <label class="btn btn-primary">
-						<input ng-model="driver.genderDriver" value="F" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo Feminino
+					    <label class="btn btn-warning">
+						<input ng-model="addDriver.gender" ng-value="F" type="radio" name="genderDriver" id="genderDriver2" autocomplete="off">Sexo Feminino
 					    </label>
 					</div>
 					<div class="spacer">
@@ -130,7 +130,7 @@
 					<div class="modal-footer">
 						<div class="btn-group">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-success" ng-click="addDriver()">Adicionar</button>
+							<button type="button" class="btn btn-success" ng-click="addNewDriver()">Adicionar</button>
 						</div>
 					</div>
                 </div>
@@ -217,22 +217,16 @@
         </div>
     </div>
     <!-- // Modal -->
+    <!-- Jquery JS file -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!-- AngularJS file -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
+    <!-- Bootstrap JS file -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
-<!-- Jquery JS file -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- AngularJS file -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-<!-- Bootstrap JS file -->
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- Custom JS file -->
-<script type="text/javascript" src="lib/app.js"></script>
-
+    <!-- Custom JS file -->
+    <script type="text/javascript" src="lib/app.js"></script>
 </body>
 </html>
