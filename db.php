@@ -2,9 +2,9 @@
 // DB connection
 
 define('HOST', 'us-cdbr-iron-east-05.cleardb.net'); // Database Host URL
-define('USER', 'b3efc8441c244c'); // Database Username
-define('PASSWORD', '70c6d2ac'); // Database User Password
-define('DATABASE', 'heroku_ca03b14418567c1'); // Database Name
+define('USER', 'b4a85b66a8e5a7'); // Database Username
+define('PASSWORD', '93b0132a'); // Database User Password
+define('DATABASE', 'heroku_cd1c157b6d9c9f2'); // Database Name
 
 function DB()
 {
