@@ -32,7 +32,7 @@ class Driver
         $query->bindParam("sqlCar", $Dcar, PDO::PARAM_STR);
         $query->bindParam("sqlStatus", $Dstatus, PDO::PARAM_STR);
         $query->bindParam("sqlGender", $Dgender, PDO::PARAM_STR);
-        $query->execute();
+        $query->execute() or die(http_response_code(400));
 
         return json_encode(['driver' => [
             'nameD'      => $Dname,
@@ -53,13 +53,13 @@ class Driver
     public function Read()
     {
         $query = $this->db->prepare("SELECT * FROM drivers ORDER BY nameD, cpfD");
-        $query->execute();
+        $query->execute() or die(http_response_code(400));
         $data = array();
         while ($row = $query->fetch(PDO::FETCH_ASSOC))
         {
             $data[] = $row;
         }
-
+        http_response_code(200);
         return json_encode(['driversRead' => $data]);
         //http_response_code(200);
     }
@@ -86,7 +86,7 @@ class Driver
         $query->bindParam("sqlCar", $Dcar, PDO::PARAM_STR);
         $query->bindParam("sqlStatus", $Dstatus, PDO::PARAM_STR);
         $query->bindParam("sqlGender", $Dgender, PDO::PARAM_STR);
-        $query->execute();
+        $query->execute() or die(http_response_code(400));
 
         http_response_code(200);
     }
@@ -100,7 +100,7 @@ class Driver
     {
         $query = $this->db->prepare("DELETE FROM Drivers WHERE cpfD = :sqlCpf;");
         $query->bindParam("sqlCpf", $Dcpf, PDO::PARAM_STR);
-        $query->execute();
+        $query->execute() or die(http_response_code(400));
         http_response_code(200);
     }
 }
