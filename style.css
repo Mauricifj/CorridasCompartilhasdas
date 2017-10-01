@@ -1,0 +1,11 @@
+body {font: 20px Montserrat, sans-serif; line-height: 1.8; color: #f5f6f7;}
+p {font-size: 16px;}
+.img-responsive {display: inline; width:50%;}
+.margin {margin-bottom: 45px;}
+.bg-2 {background-color: #474e5d;color: #ffffff;}
+.bg-3 {background-color: #138496;color: #721c24;}
+.bg-4 {background-color: #2f2f2f;color: #fff;}
+.container-fluid {padding-top: 70px;padding-bottom: 70px;}
+.navbar {padding-top: 15px;padding-bottom: 15px;border: 0;border-radius: 0;margin-bottom: 0;font-size: 12px;letter-spacing: 5px;}
+.navbar-nav li a:hover {color: #1abc9c !important;}
+hr {border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));}
