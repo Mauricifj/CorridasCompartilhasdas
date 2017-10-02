@@ -301,8 +301,8 @@
     <!-- /Content Section -->
 
     <!-- Modal Tips -->
-    <div class="modal fade" id="tipsToRides" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
+    <div id="tipsToRides" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">>
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -342,9 +342,8 @@
     <script type="text/javascript" src="app.js"></script>
     <script>
         $(document).ready(function() {
-            alert("Após carregarem as listas...\n1º: escolha um passageiro disponível\n2º: escolha um motorista disponível;\n3º: define um valor para a corrida");
-            var modal_element = angular.element('#tipsToRides');
-            modal_element.modal('hide');
+            //alert("Após carregarem as listas...\n1º: Escolha um passageiro disponível\n2º: Escolha um motorista disponível;\n3º: Defina um valor para a corrida");
+           $('#myModal').modal('show');
         });
     </script>
 </body>
