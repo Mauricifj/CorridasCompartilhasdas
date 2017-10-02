@@ -56,7 +56,7 @@ switch ($data['action']) {
                 break;
             case 'passenger':
                 $passengerDelete = new Passenger();
-                echo $passengerDelete->Delete($data['cpf']);
+                echo $passengerDelete->Delete($data['cpfP']);
                 break;
             case 'ride':
                 $rideDelete = new Ride();
