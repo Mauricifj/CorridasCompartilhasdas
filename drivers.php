@@ -15,7 +15,7 @@
             color: #fff;
             text-align: center;
         }
-        table {
+        .table {
             max-width: none;
         }
         thead {
