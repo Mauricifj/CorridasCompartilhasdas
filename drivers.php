@@ -15,8 +15,8 @@
             color: #fff;
             text-align: center;
         }
-        .table {
-            max-width: none;
+        .table-scrollable{
+            overflow: auto;
         }
         thead {
             background-color: #2222FF;;
@@ -122,7 +122,7 @@
             <div class="col-md-12">
                 <div class="panel-body">
                 <h3 class="margin">MOTORISTAS:</h3>
-                <table ng-if="drivers.length > 0 && !loading" class="table table-striped table-responsive ">
+                <table ng-if="drivers.length > 0 && !loading" class="table table-striped table-responsive table-scrollable">
                     <thead>
                     <tr>
                         <th>Número</th>
