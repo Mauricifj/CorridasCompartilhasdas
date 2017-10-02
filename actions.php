@@ -3,11 +3,9 @@ require __DIR__ . '/Classes.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-switch ($data['action'])
-{
+switch ($data['action']) {
     case 'list':
-        switch ($data['who'])
-        {
+        switch ($data['who']) {
             case 'driver':
                 $driverRead = new Driver();
                 echo $driverRead->Read();
@@ -22,9 +20,8 @@ switch ($data['action'])
                 break;
         }
         break;
-        case 'update':
-        switch ($data['who'])
-        {
+    case 'update':
+        switch ($data['who']) {
             case 'driver':
                 $driverUpdate = new Driver();
                 echo $driverUpdate->Update($data['driver']['nameD'], $data['driver']['birthD'], $data['driver']['cpfD'], $data['driver']['carD'], $data['driver']['statusD'], $data['driver']['genderD']);
@@ -69,7 +66,6 @@ switch ($data['action'])
         error_log("Oh no! We are out of FOOs!", 3, "debug.txt");
         break;
 }
-
 
 
 ?>

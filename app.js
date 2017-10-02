@@ -236,8 +236,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 action: 'add',
                 who: 'ride',
                 ride: $scope.rides
-            }).then(function success()
-        {
+            }).then(function success() {
             alert("Quase lá");
             $scope.formCost.$setPristine();
             $scope.formCost.$setUntouched()
@@ -254,20 +253,17 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.rides = [];
 
-    $scope.listRides = function ()
-    {
+    $scope.listRides = function () {
         $scope.loading = true;
         $http.post('actions.php',
             {
                 action: 'list',
                 who: 'ride'
             })
-            .then(function success(e)
-            {
+            .then(function success(e) {
                 $scope.rides = e.data.ridesRead;
                 $scope.loading = false;
-            }, function error()
-            {
+            }, function error() {
                 alert("Erro ao carregar corridas!");
             });
 
@@ -277,8 +273,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     // Delete the Passenger
     $scope.deleteRide = function (index) {
         var conf = confirm("Realmente gostaria de apagar?");
-        if (conf == true)
-        {
+        if (conf == true) {
             $scope.loading = true;
             $http.post('actions.php',
                 {
@@ -286,15 +281,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     who: 'ride',
                     id: $scope.rides[index].id
                 })
-                .then(function success()
-                {
+                .then(function success() {
                     $scope.loading = false;
                     $scope.rides.splice(index, 1);
                     $scope.listRides();
                 });
         }
-        else
-        {
+        else {
             alert("Verifique o preenchimento!");
         }
     };

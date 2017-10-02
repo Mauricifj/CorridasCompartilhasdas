@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS File  -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        .bg-2
-        {
+        .bg-2 {
             background-color: #138496;
             color: #fff;
             text-align: center;
         }
-        thead
-        {
+
+        thead {
             background-color: #2222FF;;
         }
-        tbody
-        {
+
+        tbody {
             background-color: #80bdff;
             color: black;
             border-collapse: collapse;
         }
-        td, th
-        {
+
+        td, th {
             border: 1px inset blue;
             vertical-align: middle;
             text-align: center;
@@ -78,14 +78,22 @@
         <tbody>
         <tr ng-repeat="driver in drivers | filter:searchDriver">
             <td>{{ driver.nameD }}</td>
-            <td>{{ driver.birthD.substring(8,10) + "/" + driver.birthD.substring(5,7) + "/" + driver.birthD.substring(0,4) }}</td>
-            <td>{{ driver.cpfD.substring(0,3) + "." + driver.cpfD.substring(3,6) + "." + driver.cpfD.substring(6,9) + "-" + driver.cpfD.substring(9,11) }}</td>
+            <td>{{ driver.birthD.substring(8,10) + "/" + driver.birthD.substring(5,7) + "/" +
+                driver.birthD.substring(0,4) }}
+            </td>
+            <td>{{ driver.cpfD.substring(0,3) + "." + driver.cpfD.substring(3,6) + "." + driver.cpfD.substring(6,9) +
+                "-" + driver.cpfD.substring(9,11) }}
+            </td>
             <td>{{ driver.carD }}</td>
-            <td class="{{driver.statusD === '1' ? 'text-success' : 'text-danger'}}">{{ driver.statusD === "1" ? "Ativo" : "Inativo" }}</td>
+            <td class="{{driver.statusD === '1' ? 'text-success' : 'text-danger'}}">{{ driver.statusD === "1" ? "Ativo"
+                : "Inativo" }}
+            </td>
             <td>{{ driver.genderD === "m" ? "Masculino" : "Feminino" }}</td>
             <td>
-                <button ng-click="editDriver($index)" class="btn btn-primary btn-xs" title="Editar"><span class="glyphicon glyphicon-edit"></span></button>
-                <button ng-click="deleteDriver($index)" class="btn btn-danger btn-xs" title="Apagar"><span class="fa fa-trash-o"></span></button>
+                <button ng-click="editDriver($index)" class="btn btn-primary btn-xs" title="Editar"><span
+                            class="glyphicon glyphicon-edit"></span></button>
+                <button ng-click="deleteDriver($index)" class="btn btn-danger btn-xs" title="Apagar"><span
+                            class="fa fa-trash-o"></span></button>
             </td>
         </tr>
         </tbody>
@@ -127,19 +135,28 @@
                     <tr ng-repeat="driver in drivers">
                         <th>{{ $index + 1 }}</th>
                         <td>{{ driver.nameD }}</td>
-                        <td>{{ driver.birthD.substring(8,10) + "/" + driver.birthD.substring(5,7) + "/" + driver.birthD.substring(0,4) }}</td>
-                        <td>{{ driver.cpfD.substring(0,3) + "." + driver.cpfD.substring(3,6) + "." + driver.cpfD.substring(6,9) + "-" + driver.cpfD.substring(9,11) }}</td>
+                        <td>{{ driver.birthD.substring(8,10) + "/" + driver.birthD.substring(5,7) + "/" +
+                            driver.birthD.substring(0,4) }}
+                        </td>
+                        <td>{{ driver.cpfD.substring(0,3) + "." + driver.cpfD.substring(3,6) + "." +
+                            driver.cpfD.substring(6,9) + "-" + driver.cpfD.substring(9,11) }}
+                        </td>
                         <td>{{ driver.carD }}</td>
-                        <td class="{{driver.statusD === '1' ? 'text-success' : 'text-danger'}}">{{ driver.statusD === "1" ? "Ativo" : "Inativo" }}</td>
+                        <td class="{{driver.statusD === '1' ? 'text-success' : 'text-danger'}}">{{ driver.statusD ===
+                            "1" ? "Ativo" : "Inativo" }}
+                        </td>
                         <td>{{ driver.genderD === "m" ? "Masculino" : "Feminino" }}</td>
                         <td>
-                            <button ng-click="editDriver($index)" class="btn btn-primary btn-xs" title="Editar"><span class="glyphicon glyphicon-edit"></span></button>
-                            <button ng-click="deleteDriver($index)" class="btn btn-danger btn-xs" title="Apagar"><span class="fa fa-trash-o"></span></button>
+                            <button ng-click="editDriver($index)" class="btn btn-primary btn-xs" title="Editar"><span
+                                        class="glyphicon glyphicon-edit"></span></button>
+                            <button ng-click="deleteDriver($index)" class="btn btn-danger btn-xs" title="Apagar"><span
+                                        class="fa fa-trash-o"></span></button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <div ng-if="loading" class="jumbotron text-center vcenter"><span  class="text-danger"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
+                <div ng-if="loading" class="jumbotron text-center vcenter"><span class="text-danger"><i
+                                class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
             </div>
         </div>
         <!-- // Drivers table -->
@@ -161,153 +178,207 @@
                 </div>
                 <div class="modal-body">
                     <ng-form name="formAddD" ng-model="formAddD">
-                    <div class="input-group {{ formAddD.addDName.$error.required && formAddD.addDName.$touched === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="addDName" ng-model="addDriver.name" type="text" class="form-control" placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
-                        <span ng-show="formAddD.addDName.$error.required && formAddD.addDName.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="input-group   {{ formAddD.addDBirth.$error.required && formAddD.addDBirth.$touched === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        <input name="addDBirth" ng-model="addDriver.birth" type="date" class="form-control" min="1900-01-01" max="2000-01-01" required>
-                        <span ng-show="formAddD.addDName.$error.required && formAddD.addDName.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="input-group {{ formAddD.addDCpf.$error.required && formAddD.addDCpf.$touched === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                        <input name="addDCpf" ng-model="addDriver.cpf" type="text" class="form-control" placeholder="CPF (Somento os números ou X)" title="Formato: Somente números, sem pontos ou traço!" pattern="[0-9]{10}[0-9xX]{1}$" required maxlength="11">
-                        <span ng-show="formAddD.addDCpf.$error.required && formAddD.addDCpf.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="input-group {{ formAddD.addDCar.$error.required && formAddD.addDCar.$touched === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                        <input name="addDCar" ng-model="addDriver.car" type="text" class="form-control" placeholder="Modelo do carro" required>
-                        <span ng-show="formAddD.addDCar.$error.required && formAddD.addDCar.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="input-group {{ formAddD.addDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><input name="addDStatus" type="radio" ng-model="addDriver.status" value="1" required></span>
-                        <span class="form-control"><i class="fa fa-briefcase"> Status Ativo</i></span>
-                        <span class="input-group-addon"><input name="addDStatus" type="radio" ng-model="addDriver.status" value="0" required></span>
-                        <span class="form-control"><i class="fa fa-bed"> Status Inativo</i></span>
-                        <span ng-show="formAddD.addDStatus.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="input-group {{ formAddD.addDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
-                        <span class="input-group-addon"><input name="addDGender" id="gender1" type="radio" ng-model="addDriver.gender" value="m" required></span>
-                        <span class="form-control"><i class="fa fa-mars"> Sexo Masculino</i></span>
-                        <span class="input-group-addon"><input name="addDGender" id="gender2" type="radio" ng-model="addDriver.gender" value="f" required></span>
-                        <span class="form-control"><i class="fa fa-venus"> Sexo Feminino</i></span>
-                        <span ng-show="formAddD.addDGender.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                    </div>
-                    <div class="spacer">
-                        <hr>
-                    </div>
-                    <div class="spacer">
-                        <br />
-                    </div>
-                    </ng-form>
-                </div>
-                    <div class="modal-footer">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-ban"></span> Cancelar</button>
-                            <button type="button" class="btn btn-success" ng-click="addNewDriver()"><span class="fa fa-floppy-o"></span> Adicionar</button>
+                        <div class="input-group {{ formAddD.addDName.$error.required && formAddD.addDName.$touched === true ? 'has-error has-feedback' : '' }}">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="addDName" ng-model="addDriver.name" type="text" class="form-control"
+                                   placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
+                            <span ng-show="formAddD.addDName.$error.required && formAddD.addDName.$touched"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- // Modal -->
-
-    <!-- Modal - Update Driver -->
-    <div class="modal fade text-center" id="modalUpdateDriver" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <span class="h4 modal-title"><kbd>EDITAR MOTORISTA:</kbd></span>
-                </div>
-                <div class="modal-body">
-                    <ng-form name="formUpdateD" ng-model="formUpdateD">
-                            <div class="input-group {{ formUpdateD.updateDName.$error.required && formUpdateD.updateDName.$touched === true ? 'has-error has-feedback' : '' }}">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="updateDName" ng-model="updateDriver.nameD" type="text" class="form-control danger" placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
-                                <span ng-show="formUpdateD.updateDName.$error.required && formUpdateD.updateDName.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
-                            </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group   {{ formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched === true ? 'has-error has-feedback' : '' }}">
+                        <div class="input-group   {{ formAddD.addDBirth.$error.required && formAddD.addDBirth.$touched === true ? 'has-error has-feedback' : '' }}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input name="updateDBirth" ng-model="updateDriver.birthD" type="date" class="form-control" min="1900-01-01" max="2000-01-01" value="{{ updateDriver.birthD }}">
-                            <span ng-show="formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <input name="addDBirth" ng-model="addDriver.birth" type="date" class="form-control"
+                                   min="1900-01-01" max="2000-01-01" required>
+                            <span ng-show="formAddD.addDName.$error.required && formAddD.addDName.$touched"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group">
+                        <div class="input-group {{ formAddD.addDCpf.$error.required && formAddD.addDCpf.$touched === true ? 'has-error has-feedback' : '' }}">
                             <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                            <input ng-model="updateDriver.cpfD" type="text" class="form-control" required>
+                            <input name="addDCpf" ng-model="addDriver.cpf" type="text" class="form-control"
+                                   placeholder="CPF (Somento os números ou X)"
+                                   title="Formato: Somente números, sem pontos ou traço!" pattern="[0-9]{10}[0-9xX]{1}$"
+                                   required maxlength="11">
+                            <span ng-show="formAddD.addDCpf.$error.required && formAddD.addDCpf.$touched"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group {{ formUpdateD.updateDCar.$error.required && formUpdateD.updateDCar.$touched === true ? 'has-error has-feedback' : '' }}">
+                        <div class="input-group {{ formAddD.addDCar.$error.required && formAddD.addDCar.$touched === true ? 'has-error has-feedback' : '' }}">
                             <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                            <input name="updateDCar" ng-model="updateDriver.carD" type="text" class="form-control" placeholder="Modelo do carro" required>
-                            <span ng-show="formUpdateD.updateDCar.$error.required && formUpdateD.updateDCar.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <input name="addDCar" ng-model="addDriver.car" type="text" class="form-control"
+                                   placeholder="Modelo do carro" required>
+                            <span ng-show="formAddD.addDCar.$error.required && formAddD.addDCar.$touched"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group {{ formUpdateD.updateDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
-                            <span class="input-group-addon"><input name="updateDStatus" type="radio" ng-model="updateDriver.statusD" value="1" required></span>
+                        <div class="input-group {{ formAddD.addDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
+                            <span class="input-group-addon"><input name="addDStatus" type="radio"
+                                                                   ng-model="addDriver.status" value="1"
+                                                                   required></span>
                             <span class="form-control"><i class="fa fa-briefcase"> Status Ativo</i></span>
-                            <span class="input-group-addon"><input name="updateDStatus" type="radio" ng-model="updateDriver.statusD" value="0" required></span>
+                            <span class="input-group-addon"><input name="addDStatus" type="radio"
+                                                                   ng-model="addDriver.status" value="0"
+                                                                   required></span>
                             <span class="form-control"><i class="fa fa-bed"> Status Inativo</i></span>
-                            <span ng-show="formUpdateD.updateDStatus.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <span ng-show="formAddD.addDStatus.$error.required"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group {{ formUpdateD.updateDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
-                            <span class="input-group-addon"><input name="updateDGender" type="radio" ng-model="updateDriver.genderD" value="m" required></span>
+                        <div class="input-group {{ formAddD.addDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
+                            <span class="input-group-addon"><input name="addDGender" id="gender1" type="radio"
+                                                                   ng-model="addDriver.gender" value="m"
+                                                                   required></span>
                             <span class="form-control"><i class="fa fa-mars"> Sexo Masculino</i></span>
-                            <span class="input-group-addon"><input name="updateDGender" type="radio" ng-model="updateDriver.genderD" value="f" required></span>
+                            <span class="input-group-addon"><input name="addDGender" id="gender2" type="radio"
+                                                                   ng-model="addDriver.gender" value="f"
+                                                                   required></span>
                             <span class="form-control"><i class="fa fa-venus"> Sexo Feminino</i></span>
-                            <span ng-show="formUpdateD.updateDGender.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <span ng-show="formAddD.addDGender.$error.required"
+                                  class="animate-show-hide form-control-feedback"><i
+                                        class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
                         <div class="spacer">
-                            <br />
+                            <br/>
                         </div>
                     </ng-form>
-                    </div>
-
+                </div>
                 <div class="modal-footer">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
-                        <button type="button" class="btn btn-success" ng-click="updateTheDriver()"><i class="fa fa-refresh"></i> Atualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                    class="fa fa-ban"></span> Cancelar
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="addNewDriver()"><span
+                                    class="fa fa-floppy-o"></span> Adicionar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- // Modal -->
+
+<!-- Modal - Update Driver -->
+<div class="modal fade text-center" id="modalUpdateDriver" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <span class="h4 modal-title"><kbd>EDITAR MOTORISTA:</kbd></span>
+            </div>
+            <div class="modal-body">
+                <ng-form name="formUpdateD" ng-model="formUpdateD">
+                    <div class="input-group {{ formUpdateD.updateDName.$error.required && formUpdateD.updateDName.$touched === true ? 'has-error has-feedback' : '' }}">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="updateDName" ng-model="updateDriver.nameD" type="text" class="form-control danger"
+                               placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
+                        <span ng-show="formUpdateD.updateDName.$error.required && formUpdateD.updateDName.$touched"
+                              class="animate-show-hide form-control-feedback"><i
+                                    class="fa fa-exclamation-triangle text-danger"></i></span>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="input-group   {{ formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched === true ? 'has-error has-feedback' : '' }}">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input name="updateDBirth" ng-model="updateDriver.birthD" type="date" class="form-control"
+                               min="1900-01-01" max="2000-01-01" value="{{ updateDriver.birthD }}">
+                        <span ng-show="formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched"
+                              class="animate-show-hide form-control-feedback"><i
+                                    class="fa fa-exclamation-triangle text-danger"></i></span>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                        <input ng-model="updateDriver.cpfD" type="text" class="form-control" required>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="input-group {{ formUpdateD.updateDCar.$error.required && formUpdateD.updateDCar.$touched === true ? 'has-error has-feedback' : '' }}">
+                        <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                        <input name="updateDCar" ng-model="updateDriver.carD" type="text" class="form-control"
+                               placeholder="Modelo do carro" required>
+                        <span ng-show="formUpdateD.updateDCar.$error.required && formUpdateD.updateDCar.$touched"
+                              class="animate-show-hide form-control-feedback"><i
+                                    class="fa fa-exclamation-triangle text-danger"></i></span>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="input-group {{ formUpdateD.updateDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
+                        <span class="input-group-addon"><input name="updateDStatus" type="radio"
+                                                               ng-model="updateDriver.statusD" value="1"
+                                                               required></span>
+                        <span class="form-control"><i class="fa fa-briefcase"> Status Ativo</i></span>
+                        <span class="input-group-addon"><input name="updateDStatus" type="radio"
+                                                               ng-model="updateDriver.statusD" value="0"
+                                                               required></span>
+                        <span class="form-control"><i class="fa fa-bed"> Status Inativo</i></span>
+                        <span ng-show="formUpdateD.updateDStatus.$error.required"
+                              class="animate-show-hide form-control-feedback"><i
+                                    class="fa fa-exclamation-triangle text-danger"></i></span>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="input-group {{ formUpdateD.updateDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
+                        <span class="input-group-addon"><input name="updateDGender" type="radio"
+                                                               ng-model="updateDriver.genderD" value="m"
+                                                               required></span>
+                        <span class="form-control"><i class="fa fa-mars"> Sexo Masculino</i></span>
+                        <span class="input-group-addon"><input name="updateDGender" type="radio"
+                                                               ng-model="updateDriver.genderD" value="f"
+                                                               required></span>
+                        <span class="form-control"><i class="fa fa-venus"> Sexo Feminino</i></span>
+                        <span ng-show="formUpdateD.updateDGender.$error.required"
+                              class="animate-show-hide form-control-feedback"><i
+                                    class="fa fa-exclamation-triangle text-danger"></i></span>
+                    </div>
+                    <div class="spacer">
+                        <hr>
+                    </div>
+                    <div class="spacer">
+                        <br/>
+                    </div>
+                </ng-form>
+            </div>
+
+            <div class="modal-footer">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-ban"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success" ng-click="updateTheDriver()"><i
+                                class="fa fa-refresh"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <!-- // Modal -->
 

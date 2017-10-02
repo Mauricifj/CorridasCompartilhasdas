@@ -279,8 +279,6 @@
 </div>
 
 
-
-
 <footer class="container-fluid bg-3 text-center">
     <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>
 </footer>

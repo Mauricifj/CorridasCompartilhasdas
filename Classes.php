@@ -5,6 +5,7 @@ require __DIR__ . '/db.php';
 class Driver
 {
     protected $db;
+
     //Driver constructor.
     public function __construct()
     {
@@ -29,8 +30,7 @@ class Driver
         $queryCPF->bindParam("sqlCpf", $Dcpf, PDO::PARAM_STR);
         $queryCPF->execute();
         $row = $queryCPF->fetch(PDO::FETCH_ASSOC);
-        if ($row)
-        {
+        if ($row) {
             http_response_code(400);
         }
 
@@ -44,12 +44,12 @@ class Driver
         $query->execute();
 
         return json_encode(['driver' => [
-            'nameD'      => $Dname,
-            'birthD'     => $Dbirth,
-            'cpfD'       => $Dcpf,
-            'carD'       => $Dcar,
-            'statusD'    => $Dstatus,
-            'genderD'    => $Dgender
+            'nameD' => $Dname,
+            'birthD' => $Dbirth,
+            'cpfD' => $Dcpf,
+            'carD' => $Dcar,
+            'statusD' => $Dstatus,
+            'genderD' => $Dgender
         ]]);
         http_response_code(200);
     }
@@ -64,8 +64,7 @@ class Driver
         $query = $this->db->prepare("SELECT * FROM drivers ORDER BY nameD");
         $query->execute();
         $data = array();
-        while ($row = $query->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $data[] = $row;
         }
 
@@ -145,10 +144,10 @@ class Passenger
         $query->execute();
 
         return json_encode(['passenger' => [
-            'nameP'      => $Pname,
-            'birthP'     => $Pbirth,
-            'cpfP'       => $Pcpf,
-            'genderP'    => $Pgender
+            'nameP' => $Pname,
+            'birthP' => $Pbirth,
+            'cpfP' => $Pcpf,
+            'genderP' => $Pgender
         ]]);
     }
 
@@ -233,21 +232,21 @@ class Ride
         $query->execute();
 
         return json_encode(['ride' => [
-            'id'            => $this->db->lastInsertId(),
-            'cpfDriver'     => $cpfDriv,
-            'nameDriver'    => $nameDriv,
-            'cpfPassenger'  => $cpfPass,
+            'id' => $this->db->lastInsertId(),
+            'cpfDriver' => $cpfDriv,
+            'nameDriver' => $nameDriv,
+            'cpfPassenger' => $cpfPass,
             'namePassenger' => $namePass,
-            'cost'          => $cost
+            'cost' => $cost
         ]]);
         http_response_code(200);
     }
 
     /**
-    * List Rides
-    *
-    * @return string
-    */
+     * List Rides
+     *
+     * @return string
+     */
     public function Read()
     {
         $query = $this->db->prepare("SELECT * FROM rides ORDER BY id");
