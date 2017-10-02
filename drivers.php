@@ -59,7 +59,7 @@
 <!-- Content Section -->
 <!-- Search Container -->
 <div id="search" class="container-fluid bg-1 text-center">
-    <div class="panel-body">
+    <div class="table-scrollable">
     <h3 class="margin">CONSULTAR MOTORISTAS</h3>
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
