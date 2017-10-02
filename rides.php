@@ -33,6 +33,12 @@
             text-align: center;
         }
     </style>
+    <script>
+        $( document ).ready(function() {
+            var modal_element = angular.element('#tips');
+            modal_element.modal('hide');
+        });
+    </script>
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
@@ -64,7 +70,7 @@
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
         <input type="text" class="form-control" ng-model="searchPassenger" placeholder="Consultar">
     </div>
-    <h3 ng-if="searchPassenger.length > 0" class="margin">RESULTADO:</h3>
+    <h3 ng-if="searchPassenger.length > 0" class="margin">SELECIONE UM PASSAGEIRO:</h3>
     <table ng-if="searchPassenger.length > 0" class="table table-striped table-responsive ">
         <thead>
         <tr>
@@ -95,7 +101,7 @@
         <!-- Passengers table -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="margin">PASSAGEIROS:</h3>
+                <h3 class="margin">SELECIONE UM PASSAGEIRO:</h3>
                 <table ng-if="passengers.length > 0 && !loading" class="table table-striped table-responsive ">
                     <thead>
                     <tr>
@@ -137,7 +143,7 @@
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
         <input type="text" class="form-control" ng-model="searchDriver" placeholder="Consultar">
     </div>
-    <h3 ng-if="searchDriver.length > 0" class="margin">RESULTADO:</h3>
+    <h3 ng-if="searchDriver.length > 0" class="margin">SELECIONE UM MOTORISTA:</h3>
     <table ng-if="searchDriver.length > 0" class="table table-striped table-responsive ">
         <thead>
         <tr>
@@ -174,7 +180,7 @@
         <!-- Drivers table -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="margin">MOTORISTAS:</h3>
+                <h3 class="margin">SELECIONE UM MOTORISTA:</h3>
                 <table ng-if="drivers.length > 0 && !loading" class="table table-striped table-responsive ">
                     <thead>
                     <tr>
@@ -230,7 +236,7 @@
     <!-- /Content Section -->
 </div>
 
-<div class="container-fluid bg-2 text-center">
+<div class="container-fluid bg-1 text-center">
     <!-- Content Section -->
     <div class="container">
         <!-- Rides table -->
@@ -278,6 +284,27 @@
     </div>
 </div>
 
+<!-- Modal Tips -->
+<div class="modal fade" id="tips" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-center"><kbd>Dicas para criar uma corrida:</kbd></h4>
+            </div>
+            <div class="modal-body">
+                Após carregarem as listas...
+                1º: escolha um passageiro disponível;
+                2º: escolha um motorista disponível;
+                3º: define um valor para a corrida.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Tips -->
 
 <footer class="container-fluid bg-3 text-center">
     <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>

@@ -217,32 +217,24 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     $scope.createRide = function () {
-        $scope.ride['cpfDriver'] = $scope.cpfDriver;
-        $scope.ride['nameDriver'] = $scope.nameDriver;
-        $scope.ride['cpfPassenger'] = $scope.cpfPassenger;
-        $scope.ride['namePassenger'] = $scope.namePassenger;
-        $scope.ride['cost'] = $scope.ride.cost;
-
-        alert($scope.ride['cpfDriver']);
-        alert($scope.ride['nameDriver']);
-        alert($scope.ride['cpfPassenger']);
-        alert($scope.ride['namePassenger']);
-        alert($scope.ride['cost']);
-
-
         $scope.loading = true;
         $http.post('actions.php',
             {
                 action: 'add',
                 who: 'ride',
-                ride: $scope.rides
+                ride:{
+                    cpfDriver       : $scope.cpfDriver,
+                    nameDriver      : $scope.nameDriver,
+                    cpfPassenger    : $scope.cpfPassenger,
+                    namePassenger   : $scope.namePassenger,
+                    cost            : $scope.ride.cost
+                    }
             }).then(function success() {
-            alert("Quase lá");
             $scope.formCost.$setPristine();
             $scope.formCost.$setUntouched()
-            $scope.ride = null;
-            $scope.passengerFilter = null;
-            $scope.driverFilter = null;
+            $scope.ride.cost = "";
+            $scope.cpfDriver = "";
+            $scope.cpfPassenger = "";
             $scope.loading = false;
             $scope.listRides();
         }, function error() {
@@ -250,8 +242,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.listRides();
         });
     };
-
-    $scope.rides = [];
 
     $scope.listRides = function () {
         $scope.loading = true;
