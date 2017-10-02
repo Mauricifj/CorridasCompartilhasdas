@@ -1,13 +1,12 @@
 var app = angular.module('myApp', []);
 
-app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('myCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.drivers = [];
 
     // List Drivers
-    $scope.listDrivers = function () {
+    $scope.listDrivers = function() {
         $scope.loading = true;
-        $http.post('actions.php',
-            {
+        $http.post('actions.php', {
                 action: 'list',
                 who: 'driver'
             })
@@ -22,17 +21,16 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.listDrivers();
 
     // Add new Driver
-    $scope.addNewDriver = function () {
+    $scope.addNewDriver = function() {
         if ($scope.formAddD.$valid) {
             var modal_element = angular.element('#modalAddNewDriver');
             modal_element.modal('hide');
             $scope.loading = true;
-            $http.post('actions.php',
-                {
-                    action: 'add',
-                    who: 'driver',
-                    driver: $scope.addDriver
-                }).then(function success() {
+            $http.post('actions.php', {
+                action: 'add',
+                who: 'driver',
+                driver: $scope.addDriver
+            }).then(function success() {
                 $scope.listDrivers();
                 $scope.addDriver = null;
                 $scope.formAddD.$setPristine();
@@ -42,15 +40,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 alert("CPF já cadastrado!");
                 $scope.listDrivers();
             });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
 
     };
 
     // Open modal to edit Driver details
-    $scope.editDriver = function (index) {
+    $scope.editDriver = function(index) {
         $scope.updateDriver = $scope.drivers[index];
         var modal_element = angular.element('#modalUpdateDriver');
         modal_element.modal('show');
@@ -58,33 +55,31 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     // Update the Driver after modal closes
-    $scope.updateTheDriver = function () {
+    $scope.updateTheDriver = function() {
         if ($scope.formUpdateD.$valid) {
             var modal_element = angular.element('#modalUpdateDriver');
             modal_element.modal('hide');
             $scope.loading = true;
             $http.post('actions.php', {
-                action: 'update',
-                who: 'driver',
-                driver: $scope.updateDriver
-            })
+                    action: 'update',
+                    who: 'driver',
+                    driver: $scope.updateDriver
+                })
                 .then(function success() {
                     $scope.listDrivers();
                     $scope.loading = false;
                 });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
     };
 
     // Delete the Driver
-    $scope.deleteDriver = function (index) {
+    $scope.deleteDriver = function(index) {
         var conf = confirm("Realmente gostaria de apagar?");
         if (conf == true) {
             $scope.loading = true;
-            $http.post('actions.php',
-                {
+            $http.post('actions.php', {
                     action: 'delete',
                     who: 'driver',
                     cpf: $scope.drivers[index].cpfD
@@ -93,8 +88,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     $scope.loading = false;
                     $scope.drivers.splice(index, 1);
                 });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
     };
@@ -102,10 +96,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.passengers = [];
 
     // List Passengers passenger
-    $scope.listPassengers = function () {
+    $scope.listPassengers = function() {
         $scope.loading = true;
-        $http.post('actions.php',
-            {
+        $http.post('actions.php', {
                 action: 'list',
                 who: 'passenger'
             })
@@ -120,17 +113,16 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.listPassengers();
 
     // Add new Passenger
-    $scope.addNewPassenger = function () {
+    $scope.addNewPassenger = function() {
         if ($scope.formAddP.$valid) {
             var modal_element = angular.element('#modalAddNewPassenger');
             modal_element.modal('hide');
             $scope.loading = true;
-            $http.post('actions.php',
-                {
-                    action: 'add',
-                    who: 'passenger',
-                    passenger: $scope.addPassenger
-                }).then(function success() {
+            $http.post('actions.php', {
+                action: 'add',
+                who: 'passenger',
+                passenger: $scope.addPassenger
+            }).then(function success() {
                 $scope.addPassenger = null;
                 $scope.formAddP.$setPristine();
                 $scope.formAddP.$setUntouched();
@@ -140,8 +132,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 alert("CPF já cadastrado!");
                 $scope.listPassengers();
             });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
 
@@ -149,40 +140,38 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
     // Open modal to edit Passenger details
-    $scope.editPassenger = function (index) {
+    $scope.editPassenger = function(index) {
         $scope.updatePassenger = $scope.passengers[index];
         var modal_element = angular.element('#modalUpdatePassenger');
         modal_element.modal('show');
     };
     // Update the Passenger after modal closes
 
-    $scope.updateThePassenger = function () {
+    $scope.updateThePassenger = function() {
         if ($scope.formUpdateP.$valid) {
             var modal_element = angular.element('#modalUpdatePassenger');
             modal_element.modal('hide');
             $scope.loading = true;
             $http.post('actions.php', {
-                action: 'update',
-                who: 'passenger',
-                passenger: $scope.updatePassenger
-            })
+                    action: 'update',
+                    who: 'passenger',
+                    passenger: $scope.updatePassenger
+                })
                 .then(function success() {
                     $scope.listPassengers();
                     $scope.loading = false;
                 });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
     };
 
     // Delete the Passenger
-    $scope.deletePassenger = function (index) {
+    $scope.deletePassenger = function(index) {
         var conf = confirm("Realmente gostaria de apagar?");
         if (conf == true) {
             $scope.loading = true;
-            $http.post('actions.php',
-                {
+            $http.post('actions.php', {
                     action: 'delete',
                     who: 'passenger',
                     cpf: $scope.passengers[index].cpfP
@@ -191,45 +180,51 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     $scope.loading = false;
                     $scope.passengers.splice(index, 1);
                 });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
     };
 
     $scope.ride = [];
 
-    $scope.selectDriver = function (index) {
+    // Select driver to ride
+    $scope.selectDriver = function(index) {
         $scope.cpfDriver = $scope.drivers[index].cpfD;
         $scope.nameDriver = $scope.drivers[index].nameD;
     };
-    $scope.selectPassenger = function (index) {
+    
+    //Select passenger to ride
+    $scope.selectPassenger = function(index) {
         $scope.cpfPassenger = $scope.passengers[index].cpfP;
         $scope.namePassenger = $scope.passengers[index].nameP;
     };
-    $scope.deselectDriver = function () {
+    
+    // Deselect driver to ride
+    $scope.deselectDriver = function() {
         $scope.cpfDriver = "";
         $scope.nameDriver = null;
     };
-    $scope.deselectPassenger = function () {
+    
+    //Deselect passenger to ride
+    $scope.deselectPassenger = function() {
         $scope.cpfPassenger = "";
         $scope.namePassenger = null;
     };
-
-    $scope.createRide = function () {
+    
+    //Create Ride
+    $scope.createRide = function() {
         $scope.loading = true;
-        $http.post('actions.php',
-            {
-                action: 'add',
-                who: 'ride',
-                ride:{
-                    cpfDriver       : $scope.cpfDriver,
-                    nameDriver      : $scope.nameDriver,
-                    cpfPassenger    : $scope.cpfPassenger,
-                    namePassenger   : $scope.namePassenger,
-                    cost            : $scope.ride.cost
-                    }
-            }).then(function success() {
+        $http.post('actions.php', {
+            action: 'add',
+            who: 'ride',
+            ride: {
+                cpfDriver: $scope.cpfDriver,
+                nameDriver: $scope.nameDriver,
+                cpfPassenger: $scope.cpfPassenger,
+                namePassenger: $scope.namePassenger,
+                cost: $scope.ride.cost
+            }
+        }).then(function success() {
             $scope.formCost.$setPristine();
             $scope.formCost.$setUntouched()
             $scope.ride.cost = "";
@@ -243,10 +238,10 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
         });
     };
 
-    $scope.listRides = function () {
+    //List Ride
+    $scope.listRides = function() {
         $scope.loading = true;
-        $http.post('actions.php',
-            {
+        $http.post('actions.php', {
                 action: 'list',
                 who: 'ride'
             })
@@ -260,13 +255,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     };
     $scope.listRides();
 
-    // Delete the Passenger
-    $scope.deleteRide = function (index) {
+    // Delete the Ride
+    $scope.deleteRide = function(index) {
         var conf = confirm("Realmente gostaria de apagar?");
         if (conf == true) {
             $scope.loading = true;
-            $http.post('actions.php',
-                {
+            $http.post('actions.php', {
                     action: 'delete',
                     who: 'ride',
                     id: $scope.rides[index].id
@@ -276,8 +270,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     $scope.rides.splice(index, 1);
                     $scope.listRides();
                 });
-        }
-        else {
+        } else {
             alert("Verifique o preenchimento!");
         }
     };
