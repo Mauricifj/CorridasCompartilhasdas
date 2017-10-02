@@ -54,9 +54,10 @@
         </div>
     </div>
 </nav>
-<!-- // Add driver button -->
+<!-- Content Section -->
 <!-- Search Container -->
 <div id="search" class="container-fluid bg-1 text-center">
+    <div class="panel-body">
     <h3 class="margin">CONSULTAR MOTORISTAS</h3>
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -98,9 +99,9 @@
         </tr>
         </tbody>
     </table>
+    </div>
 </div>
 <div class="container-fluid bg-2">
-    <!-- Content Section -->
     <div class="container">
         <!-- Add driver button -->
         <div class="row">
@@ -117,6 +118,7 @@
         <!-- Drivers table -->
         <div class="row">
             <div class="col-md-12">
+                <div class="panel-body">
                 <h3 class="margin">MOTORISTAS:</h3>
                 <table ng-if="drivers.length > 0 && !loading" class="table table-striped table-responsive ">
                     <thead>
@@ -157,6 +159,7 @@
                 </table>
                 <div ng-if="loading" class="jumbotron text-center vcenter"><span class="text-danger"><i
                                 class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
+                </div>
             </div>
         </div>
         <!-- // Drivers table -->
