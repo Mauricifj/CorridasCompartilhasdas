@@ -87,10 +87,9 @@
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
     <h3 class="margin">SOBRE NÓS</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <a href="#" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-search"></span> Search
-    </a>
+    <p>Vestibulum sit amet leo ac dolor accumsan venenatis. Curabitur vel congue diam. Etiam malesuada orci quis mi lacinia tristique. Aliquam vestibulum consequat tempor. Nam elementum urna nibh, eu sagittis mi finibus vel. Etiam nec magna in neque gravida accumsan. Ut blandit euismod risus, quis ultricies lorem faucibus eget. Duis eget felis gravida, mollis libero et, accumsan urna. Nulla commodo, lectus in sagittis sagittis, nulla felis auctor erat, nec pharetra orci est et purus. Etiam vitae sagittis tortor. Phasellus rutrum massa sed odio scelerisque, et faucibus nulla auctor. Vivamus sed sagittis erat. Curabitur non quam tellus. Integer a risus nec erat ultrices pulvinar sed sed ante. Etiam imperdiet dolor ultrices, scelerisque nisl sed, porta velit.</p>
+    <p>Nunc dignissim rhoncus felis a elementum. Mauris sem libero, volutpat vel sollicitudin ac, tempus ut dolor. Quisque tincidunt eros sodales, viverra diam in, egestas nisl. Curabitur vel diam fermentum, tempor neque ut, vulputate leo. Nulla sodales consectetur tortor, sit amet vulputate lorem vehicula hendrerit. Curabitur ornare suscipit velit, porttitor feugiat risus scelerisque ut. Ut euismod dignissim massa ut cursus. Integer mollis nisl a rhoncus aliquet. Vivamus luctus, urna id ullamcorper ornare, ante lacus pretium nulla, faucibus accumsan nisi lectus quis ante. Aenean vehicula, elit at scelerisque rutrum, mauris risus consequat enim, sit amet elementum quam nisi quis magna. Integer interdum maximus vehicula. Nulla facilisi. Integer eu felis mi. Praesent nec felis gravida, faucibus turpis vitae, semper nisl.</p>
+
 </div>
 
 <!-- Footer -->
