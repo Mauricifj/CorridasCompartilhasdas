@@ -341,10 +341,9 @@
     <!-- Custom JS file -->
     <script type="text/javascript" src="app.js"></script>
     <script>
-        $(function()
-        {
+        $( document ).ready(function() {
             //alert("Após carregarem as listas...\n1º: Escolha um passageiro disponível\n2º: Escolha um motorista disponível;\n3º: Defina um valor para a corrida");
-           $('#tipsToRide').modal('show');
+            $('#tipsToRide').modal('show');
         });
     </script>
 </body>
