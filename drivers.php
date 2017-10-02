@@ -16,7 +16,7 @@
             text-align: center;
         }
         .table-scrollable{
-            overflow: auto;
+            overflow-x: auto;
         }
         thead {
             background-color: #2222FF;;
@@ -120,7 +120,6 @@
         <!-- Drivers table -->
         <div class="row">
             <div class="col-md-12">
-                <div class="panel-body">
                 <h3 class="margin">MOTORISTAS:</h3>
                 <table ng-if="drivers.length > 0 && !loading" class="table table-striped table-responsive table-scrollable">
                     <thead>
@@ -161,8 +160,7 @@
                 </table>
                 <div ng-if="loading" class="jumbotron text-center vcenter"><span class="text-danger"><i
                                 class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
-                </div>
-            </div>
+                </div
         </div>
         <!-- // Drivers table -->
     </div>
