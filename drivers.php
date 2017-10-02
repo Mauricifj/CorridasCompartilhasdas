@@ -15,9 +15,6 @@
             color: #fff;
             text-align: center;
         }
-        .table-scrollable{
-            overflow-x: auto;
-        }
         thead {
             background-color: #2222FF;;
         }
