@@ -53,12 +53,6 @@
             text-align: center;
         }
     </style>
-    <script>
-        $(document).ready(function() {
-            var modal_element = angular.element('#tips');
-            modal_element.modal('hide');
-        });
-    </script>
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
@@ -315,7 +309,10 @@
                     <h4 class="modal-title text-center"><kbd>Dicas para criar uma corrida:</kbd></h4>
                 </div>
                 <div class="modal-body">
-                    Após carregarem as listas... 1º: escolha um passageiro disponível; 2º: escolha um motorista disponível; 3º: define um valor para a corrida.
+                    <p>Após carregarem as listas...</p>
+                    <p>1º: escolha um passageiro disponível;</p>
+                    <p>2º: escolha um motorista disponível;</p>
+                    <p>3º: define um valor para a corrida.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -343,6 +340,12 @@
 
     <!-- Custom JS file -->
     <script type="text/javascript" src="app.js"></script>
+    <script>
+        $(document).ready(function() {
+            var modal_element = angular.element('#tips');
+            modal_element.modal('hide');
+        });
+    </script>
 </body>
 
 </html>
