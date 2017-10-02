@@ -301,7 +301,7 @@
     <!-- /Content Section -->
 
     <!-- Modal Tips -->
-    <div class="modal fade" id="tips" tabindex="-1" role="dialog">
+    <div class="modal fade" id="tipsToRides" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -320,7 +320,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Tips -->
+    <!-- // Modal Tips -->
 
     <footer class="container-fluid bg-3 text-center">
         <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>
@@ -342,7 +342,8 @@
     <script type="text/javascript" src="app.js"></script>
     <script>
         $(document).ready(function() {
-            var modal_element = angular.element('#tips');
+            alert("Após carregarem as listas...\n1º: escolha um passageiro disponível\n2º: escolha um motorista disponível;\n3º: define um valor para a corrida");
+            var modal_element = angular.element('#tipsToRides');
             modal_element.modal('hide');
         });
     </script>
