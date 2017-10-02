@@ -11,20 +11,29 @@ class Driver
         $this->db = DB();
     }
 
-    /********************
+    /*
     * Add new Driver
-
+    *
     * @param $Dname
     * @param $Dbirth
     * @param $Dcpf
     * @param $Dcar
     * @param $Dstatus
     * @param $Dgender
-
+    *
     * @return string
-    *********************/
+    */
     public function Create($Dname, $Dbirth, $Dcpf, $Dcar, $Dstatus, $Dgender)
     {
+        $queryCPF = $this->db->prepare("SELECT * FROM drivers WHERE cpfD = :sqlCpf;");
+        $queryCPF->bindParam("sqlCpf", $Dcpf, PDO::PARAM_STR);
+        $queryCPF->execute();
+        $row = $queryCPF->fetch(PDO::FETCH_ASSOC);
+        if ($row)
+        {
+            http_response_code(400);
+        }
+
         $query = $this->db->prepare("INSERT INTO drivers (nameD, birthD, cpfD, carD, statusD, genderD) VALUES (:sqlName, :sqlBirth, :sqlCpf, :sqlCar, :sqlStatus, :sqlGender)");
         $query->bindParam("sqlName", $Dname, PDO::PARAM_STR);
         $query->bindParam("sqlBirth", $Dbirth, PDO::PARAM_STR);
@@ -32,7 +41,7 @@ class Driver
         $query->bindParam("sqlCar", $Dcar, PDO::PARAM_STR);
         $query->bindParam("sqlStatus", $Dstatus, PDO::PARAM_STR);
         $query->bindParam("sqlGender", $Dgender, PDO::PARAM_STR);
-        $query->execute() or die(http_response_code(400));
+        $query->execute();
 
         return json_encode(['driver' => [
             'nameD'      => $Dname,
@@ -52,18 +61,17 @@ class Driver
      */
     public function Read()
     {
-        $query = $this->db->prepare("SELECT * FROM drivers ORDER BY nameD, cpfD");
-        $query->execute() or die(http_response_code(400));
+        $query = $this->db->prepare("SELECT * FROM drivers ORDER BY nameD");
+        $query->execute();
         $data = array();
         while ($row = $query->fetch(PDO::FETCH_ASSOC))
         {
             $data[] = $row;
         }
-        http_response_code(200);
-        return json_encode(['driversRead' => $data]);
-        //http_response_code(200);
-    }
 
+        return json_encode(['driversRead' => $data]);
+        http_response_code(200);
+    }
 
     /**
      * Update Driver
@@ -79,14 +87,14 @@ class Driver
     public function Update($Dname, $Dbirth, $Dcpf, $Dcar, $Dstatus, $Dgender)
     {
 
-        $query = $this->db->prepare("UPDATE Drivers SET nameD = :sqlName, birthD = :sqlBirth, carD = :sqlCar, statusD = :sqlStatus, genderD = :sqlGender WHERE cpfD = :sqlCpf");
+        $query = $this->db->prepare("UPDATE drivers SET nameD = :sqlName, birthD = :sqlBirth, carD = :sqlCar, statusD = :sqlStatus, genderD = :sqlGender WHERE cpfD = :sqlCpf");
         $query->bindParam("sqlName", $Dname, PDO::PARAM_STR);
         $query->bindParam("sqlBirth", $Dbirth, PDO::PARAM_STR);
         $query->bindParam("sqlCpf", $Dcpf, PDO::PARAM_STR);
         $query->bindParam("sqlCar", $Dcar, PDO::PARAM_STR);
         $query->bindParam("sqlStatus", $Dstatus, PDO::PARAM_STR);
         $query->bindParam("sqlGender", $Dgender, PDO::PARAM_STR);
-        $query->execute() or die(http_response_code(400));
+        $query->execute();
 
         http_response_code(200);
     }
@@ -98,9 +106,9 @@ class Driver
      */
     public function Delete($Dcpf)
     {
-        $query = $this->db->prepare("DELETE FROM Drivers WHERE cpfD = :sqlCpf;");
+        $query = $this->db->prepare("DELETE FROM drivers WHERE cpfD = :sqlCpf;");
         $query->bindParam("sqlCpf", $Dcpf, PDO::PARAM_STR);
-        $query->execute() or die(http_response_code(400));
+        $query->execute();
         http_response_code(200);
     }
 }
@@ -120,31 +128,27 @@ class Passenger
     /**
      * Add new Passenger
      *
-     * @param $namePassenger
-     * @param $birthPassenger
-     * @param $cpfPassenger
-     * @param $genderPassenger
+     * @param $Pname
+     * @param $Pbirth
+     * @param $Pcpf
+     * @param $Pgender
      *
      * @return string
      */
-    public function Create($namePassenger, $birthPassenger, $cpfPassenger, $genderPassenger)
+    public function Create($Pname, $Pbirth, $Pcpf, $Pgender)
     {
-        //$birthPassenger = strtotime($birthPassenger);
-        //$birthPassenger = date('Y-m-d', $birthPassenger);
-
-        $query = $this->db->prepare("INSERT INTO Passengers (namePassenger, birthPassenger, cpfPassenger, genderPassenger) VALUES (:name, :birth, :cpf, :gender)");
-        $query->bindParam("name", $namePassenger, PDO::PARAM_STR);
-        $query->bindParam("birth", $birthPassenger, PDO::PARAM_STR);
-        $query->bindParam("cpf", $cpfPassenger, PDO::PARAM_STR);
-        $query->bindParam("gender", $genderPassenger, PDO::PARAM_STR);
+        $query = $this->db->prepare("INSERT INTO passengers (nameP, birthP, cpfP, genderP) VALUES (:sqlName, :sqlBirth, :sqlCpf, :sqlGender)");
+        $query->bindParam("sqlName", $Pname, PDO::PARAM_STR);
+        $query->bindParam("sqlBirth", $Pbirth, PDO::PARAM_STR);
+        $query->bindParam("sqlCpf", $Pcpf, PDO::PARAM_STR);
+        $query->bindParam("sqlGender", $Pgender, PDO::PARAM_STR);
         $query->execute();
 
         return json_encode(['passenger' => [
-            'id'        => $this->db->lastInsertId(),
-            'name'      => $namePassenger,
-            'birth'     => $birthPassenger,
-            'cpf'       => $cpfPassenger,
-            'gender'    => $genderPassenger
+            'nameP'      => $Pname,
+            'birthP'     => $Pbirth,
+            'cpfP'       => $Pcpf,
+            'genderP'    => $Pgender
         ]]);
     }
 
@@ -155,47 +159,44 @@ class Passenger
      */
     public function Read()
     {
-        $query = $this->db->prepare("SELECT * FROM Passengers");
+        $query = $this->db->prepare("SELECT * FROM passengers ORDER BY nameP, cpfP");
         $query->execute();
         $data = array();
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $data[] = $row;
         }
 
-        return json_encode(['passengers' => $data]);
+        return json_encode(['passengersRead' => $data]);
     }
-
 
     /**
      * Update Passenger
      *
-     * @param $idPassenger
-     * @param $namePassenger
-     * @param $birthPassenger
-     * @param $cpfPassenger
-     * @param $genderPassenger
+     * @param $Pname
+     * @param $Pbirth
+     * @param $Pcpf
+     * @param $Pgender
      *
      */
-    public function Update($idPassenger, $namePassenger, $birthPassenger, $cpfPassenger, $genderPassenger)
+    public function Update($Pname, $Pbirth, $Pcpf, $Pgender)
     {
-        $query = $this->db->prepare("UPDATE Passengers SET namePassenger = :name, birthPassenger = :birth, cpfPassenger = :cpf, genderPassenger = :gender WHERE idPassenger = :id");
-        $query->bindParam("id", $idPassenger, PDO::PARAM_STR);
-        $query->bindParam("name", $namePassenger, PDO::PARAM_STR);
-        $query->bindParam("birth", $birthPassenger, PDO::PARAM_STR);
-        $query->bindParam("cpf", $cpfPassenger, PDO::PARAM_STR);
-        $query->bindParam("gender", $genderPassenger, PDO::PARAM_STR);
+        $query = $this->db->prepare("UPDATE passengers SET nameP = :sqlName, birthP = :sqlBirth, genderP = :sqlGender WHERE cpfP = :sqlCpf");
+        $query->bindParam("sqlName", $Pname, PDO::PARAM_STR);
+        $query->bindParam("sqlBirth", $Pbirth, PDO::PARAM_STR);
+        $query->bindParam("sqlCpf", $Pcpf, PDO::PARAM_STR);
+        $query->bindParam("sqlGender", $Pgender, PDO::PARAM_STR);
         $query->execute();
     }
 
     /**
      * Delete Passenger
      *
-     * @param $idPassenger
+     * @param $Pcpf
      */
-    public function Delete($idPassenger)
+    public function Delete($Pcpf)
     {
-        $query = $this->db->prepare("DELETE FROM Passengers WHERE idPassenger = :id");
-        $query->bindParam("id", $idPassenger, PDO::PARAM_STR);
+        $query = $this->db->prepare("DELETE FROM passengers WHERE cpfP = :sqlCpf");
+        $query->bindParam("sqlCpf", $Pcpf, PDO::PARAM_STR);
         $query->execute();
     }
 }
@@ -212,80 +213,61 @@ class Ride
         $this->db = DB();
     }
 
-    /**
-     * Add new Ride
-     *
-     * @param $idRide
-     * @param $idDriver
-     * @param $idPassenger
-     * @param $rideCostCents
-     *
-     * @return string
-     */
-    public function Create($idRide, $idDriver, $idPassenger, $rideCostCents)
+    /*
+    * Add new Ride
+    *
+    * @param $driv
+    * @param $pass
+    * @param $cost
+    *
+    * @return string
+    */
+    public function Create($cpfDriv, $nameDriv, $cpfPass, $namePass, $cost)
     {
-        $rideCostCents *= 100;
-
-        $query = $this->db->prepare("INSERT INTO Rides (idDriver, idPassenger, rideCostCents) VALUES (:driver, :passenger, :cost)");
-        $query->bindParam("driver", $idDriver, PDO::PARAM_STR);
-        $query->bindParam("passenger", $idPassenger, PDO::PARAM_STR);
-        $query->bindParam("cost", $rideCostCents, PDO::PARAM_STR);
+        $query = $this->db->prepare("INSERT INTO rides (cost, cpfDriver, nameDriver, cpfPassenger, namePassenger) VALUES (:sqlCost, :sqlCpfDriver, :sqlNameDriver, :sqlCpfPassenger, :sqlNamePassenger)");
+        $query->bindParam("sqlCpfDriver", $cpfDriv, PDO::PARAM_STR);
+        $query->bindParam("sqlNameDriver", $nameDriv, PDO::PARAM_STR);
+        $query->bindParam("sqlCpfPassenger", $cpfPass, PDO::PARAM_STR);
+        $query->bindParam("sqlNamePassenger", $namePass, PDO::PARAM_STR);
+        $query->bindParam("sqlCost", $cost, PDO::PARAM_STR);
         $query->execute();
 
-        $rideCostCents /= 100;
-
-        return json_encode(['passanger' => [
-            'id'        => $this->db->lastInsertId(),
-            'driver'      => $idDriver,
-            'passenger'     => $idPassenger,
-            'cost'       => $rideCostCents
+        return json_encode(['ride' => [
+            'id'            => $this->db->lastInsertId(),
+            'cpfDriver'     => $cpfDriv,
+            'nameDriver'    => $nameDriv,
+            'cpfPassenger'  => $cpfPass,
+            'namePassenger' => $namePass,
+            'cost'          => $cost
         ]]);
+        http_response_code(200);
     }
 
     /**
-     * List Rides
-     *
-     * @return string
-     */
+    * List Rides
+    *
+    * @return string
+    */
     public function Read()
     {
-        $query = $this->db->prepare("SELECT * FROM Rides");
+        $query = $this->db->prepare("SELECT * FROM rides ORDER BY id");
         $query->execute();
         $data = array();
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $data[] = $row;
         }
-
-        return json_encode(['rides' => $data]);
+        return json_encode(['ridesRead' => $data]);
     }
 
-
-    /**
-     * Update Rides
-     *
-     * @param $idRides
-     * @param $idDriver
-     * @param $idPassanger
-     * @param $rideCostCents
-     */
-    public function Update($idRides, $idDriver, $idPassanger, $rideCostCents)
+    /*
+    * Delete Rides
+    *
+    * @param $idRide
+    */
+    public function Delete($idRide)
     {
-        $query = $this->db->prepare("UPDATE Rides SET idDriver = :driver, idPassenger = :passenger, rideCostCents = :cost WHERE idRide = :id");
-        $query->bindParam("driver", $idDriver, PDO::PARAM_STR);
-        $query->bindParam("passenger", $idPassanger, PDO::PARAM_STR);
-        $query->bindParam("cost", $rideCostCents, PDO::PARAM_STR);
-        $query->execute();
-    }
-
-    /**
-     * Delete Rides
-     *
-     * @param $idRides
-     */
-    public function Delete($idRides)
-    {
-        $query = $this->db->prepare("DELETE FROM Rides WHERE idRide = :id");
-        $query->bindParam("id", $idRides, PDO::PARAM_STR);
+        $query = $this->db->prepare("DELETE FROM rides WHERE id = :id");
+        $query->bindParam("id", $idRide, PDO::PARAM_STR);
         $query->execute();
     }
 }

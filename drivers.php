@@ -9,12 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        .bg-1
-        {
-            background-color: #1abc9c;
-            color: #ffffff;
-        }
-        .bg-3
+        .bg-2
         {
             background-color: #138496;
             color: #fff;
@@ -32,13 +27,13 @@
         }
         td, th
         {
-            border: 2px inset blue;
+            border: 1px inset blue;
             vertical-align: middle;
             text-align: center;
         }
     </style>
 </head>
-<body ng-app="myApp" ng-controller="driverCtrl">
+<body ng-app="myApp" ng-controller="myCtrl">
 <!-- Navbar -->
 <nav class="navbar navbar-default">
     <div class="container">
@@ -61,7 +56,7 @@
 </nav>
 <!-- // Add driver button -->
 <!-- Search Container -->
-<div id="search" class="container-fluid bg-2 text-center">
+<div id="search" class="container-fluid bg-1 text-center">
     <h3 class="margin">CONSULTAR MOTORISTAS</h3>
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -96,7 +91,7 @@
         </tbody>
     </table>
 </div>
-<div class="container-fluid bg-3">
+<div class="container-fluid bg-2">
     <!-- Content Section -->
     <div class="container">
         <!-- Add driver button -->
@@ -144,7 +139,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <div ng-if="loading" class="jumbotron text-center"><span  class="text-danger"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
+                <div ng-if="loading" class="jumbotron text-center vcenter"><span  class="text-danger"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> LOADING...</span></div>
             </div>
         </div>
         <!-- // Drivers table -->
@@ -168,7 +163,7 @@
                     <ng-form name="formAddD" ng-model="formAddD">
                     <div class="input-group {{ formAddD.addDName.$error.required && formAddD.addDName.$touched === true ? 'has-error has-feedback' : '' }}">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="addDName" ng-model="addDriver.name" type="text" class="form-control danger" placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
+                        <input name="addDName" ng-model="addDriver.name" type="text" class="form-control" placeholder="Nome" ng-minlength="0" ng-maxlength="50" required>
                         <span ng-show="formAddD.addDName.$error.required && formAddD.addDName.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
                     </div>
                     <div class="spacer">
@@ -236,7 +231,7 @@
     <!-- // Modal -->
 
     <!-- Modal - Update Driver -->
-    <div class="modal fade text-center" id="updateDriver" tabindex="-1" role="dialog">
+    <div class="modal fade text-center" id="modalUpdateDriver" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -257,7 +252,7 @@
                         </div>
                         <div class="input-group   {{ formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched === true ? 'has-error has-feedback' : '' }}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input name="updateDBirth" ng-model="updateDriver.birthD" type="date" class="form-control" min="1900-01-01" max="2000-01-01" required>
+                            <input name="updateDBirth" ng-model="updateDriver.birthD" type="date" class="form-control" min="1900-01-01" max="2000-01-01" value="{{ updateDriver.birthD }}">
                             <span ng-show="formUpdateD.updateDBirth.$error.required && formUpdateD.updateDBirth.$touched" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
@@ -265,7 +260,7 @@
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                            <input ng-model="updateDriver.cpfD" type="text" class="form-control" required readonly>
+                            <input ng-model="updateDriver.cpfD" type="text" class="form-control" required>
                         </div>
                         <div class="spacer">
                             <hr>
@@ -278,22 +273,22 @@
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group {{ formAddD.addDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
+                        <div class="input-group {{ formUpdateD.updateDStatus.$error.required === true ? 'has-error has-feedback' : '' }}">
                             <span class="input-group-addon"><input name="updateDStatus" type="radio" ng-model="updateDriver.statusD" value="1" required></span>
                             <span class="form-control"><i class="fa fa-briefcase"> Status Ativo</i></span>
                             <span class="input-group-addon"><input name="updateDStatus" type="radio" ng-model="updateDriver.statusD" value="0" required></span>
                             <span class="form-control"><i class="fa fa-bed"> Status Inativo</i></span>
-                            <span ng-show="formAddD.addDStatus.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <span ng-show="formUpdateD.updateDStatus.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
                         </div>
-                        <div class="input-group {{ formAddD.addDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
-                            <span class="input-group-addon"><input name="updateDGender" id="gender1" type="radio" ng-model="updateDriver.statusD" value="m" required></span>
+                        <div class="input-group {{ formUpdateD.updateDGender.$error.required === true ? 'has-error has-feedback' : '' }}">
+                            <span class="input-group-addon"><input name="updateDGender" type="radio" ng-model="updateDriver.genderD" value="m" required></span>
                             <span class="form-control"><i class="fa fa-mars"> Sexo Masculino</i></span>
-                            <span class="input-group-addon"><input name="updateDGender" id="gender2" type="radio" ng-model="updateDriver.statusD" value="f" required></span>
+                            <span class="input-group-addon"><input name="updateDGender" type="radio" ng-model="updateDriver.genderD" value="f" required></span>
                             <span class="form-control"><i class="fa fa-venus"> Sexo Feminino</i></span>
-                            <span ng-show="formAddD.addDGender.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+                            <span ng-show="formUpdateD.updateDGender.$error.required" class="animate-show-hide form-control-feedback"><i class="fa fa-exclamation-triangle text-danger"></i></span>
                         </div>
                         <div class="spacer">
                             <hr>
@@ -316,7 +311,7 @@
 </div>
 <!-- // Modal -->
 
-<footer class="container-fluid bg-4 text-center">
+<footer class="container-fluid bg-3 text-center">
     <p>Copyright © 2017 Corridas Compartilhadas Company - Todos os direitos reservados</p>
 </footer>
 
