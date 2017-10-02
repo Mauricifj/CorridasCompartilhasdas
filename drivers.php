@@ -15,7 +15,9 @@
             color: #fff;
             text-align: center;
         }
-
+        table {
+            max-width: none;
+        }
         thead {
             background-color: #2222FF;;
         }
