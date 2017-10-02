@@ -1,6 +1,10 @@
 var app = angular.module('myApp', []);
 
 app.controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+    
+    var modal_element = angular.element('#tipsToRides');
+    modal_element.modal('hide');
+    
     $scope.drivers = [];
 
     // List Drivers
