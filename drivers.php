@@ -19,7 +19,6 @@
             overflow-x: auto;
             max-width: none;
             table-layout: fixed;
-            word-wrap: break-word;
         }
         thead {
             background-color: #2222FF;;
