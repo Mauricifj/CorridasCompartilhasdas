@@ -63,7 +63,6 @@ switch ($data['action']) {
                 echo $rideDelete->Delete($data['id']);
                 break;
         }
-        error_log("Oh no! We are out of FOOs!", 3, "debug.txt");
         break;
 }
 
